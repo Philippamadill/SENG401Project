@@ -15,6 +15,6 @@
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DB_PASSWORD=**PASSWORD**
 
 4. Run the ServiceController file\
-   `node serviceController.js`
+   `npx nodemon serviceController.js`
 
 ## Client Setup
