@@ -16,7 +16,7 @@ CREATE TABLE Book (
     IBSN VARCHAR(13) PRIMARY KEY,
     book_name VARCHAR(100),
     book_description TEXT,
-    cover_image_path VARCHAR(255),
+    cover_image LONGBLOB,
     author_name VARCHAR(100),
     about_author TEXT
 );
