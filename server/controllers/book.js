@@ -25,7 +25,12 @@ router.post('/createBook', (req, res) => {
 
 // 2. Delete a Book
 router.delete('/deleteBook', (req, res) => {
-  const ISBN = req.body.ISBN;
+  const { ISBN } = req.query;
+
+    // Check if ISBN is provided
+    if (!ISBN || !username) {
+        return res.status(400).send('ISBN is required');
+      }
 
   // Query the database to delete the book with the specified ISBN
   databaseConnection.query('DELETE FROM Book WHERE ISBN = ?', [ISBN], (err, result) => {
@@ -57,5 +62,31 @@ router.get('/getAllBooks', (req, res) => {
     res.json(results);
   });
 });
+
+// 4. Get a Book by ISBN
+router.get('/getBookByISBN', (req, res) => {
+    const { ISBN } = req.query;
+
+    // Check if ISBN is provided
+    if (!ISBN) {
+        return res.status(400).send('ISBN is required');
+      }
+  
+    // Query the database to get the book with the specified ISBN
+    databaseConnection.query('SELECT * FROM Book WHERE ISBN = ?', [ISBN], (err, result) => {
+      if (err) {
+        console.error('Error executing query:', err);
+        return res.status(500).send('Internal server error');
+      }
+  
+      if (result.length === 0) {
+        // If no book is found with the given ISBN, return 404
+        return res.status(404).send('Book not found');
+      }
+  
+      // Send the book as JSON response
+      res.json(result[0]);
+    });
+  });
 
 module.exports = router;

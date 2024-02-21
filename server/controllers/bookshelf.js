@@ -25,7 +25,7 @@ router.post('/addBookToCurrentlyReading', (req, res) => {
 
 // Route to delete a book from CurrentlyReading
 router.delete('/deleteBookFromCurrentlyReading', (req, res) => {
-    const { ISBN, username } = req.body;
+    const { ISBN, username } = req.query;
 
   // Check if ISBN and username are provided
   if (!ISBN || !username) {
@@ -72,7 +72,7 @@ router.post('/addBookToWantToRead', (req, res) => {
   
   // Route to delete a book from WantToRead
   router.delete('/deleteBookFromWantToRead', (req, res) => {
-    const { ISBN, username } = req.body;
+    const { ISBN, username } = req.query;
 
     // Check if ISBN and username are provided
     if (!ISBN || !username) {
@@ -119,7 +119,7 @@ router.post('/addBookToWantToRead', (req, res) => {
   
   // Route to delete a book from AlreadyRead
   router.delete('/deleteBookFromAlreadyRead', (req, res) => {
-    const { ISBN, username } = req.body;
+    const { ISBN, username } = req.query;
 
     // Check if ISBN and username are provided
     if (!ISBN || !username) {
@@ -142,5 +142,68 @@ router.post('/addBookToWantToRead', (req, res) => {
       res.status(200).send('Book deleted from AlreadyRead successfully');
     });
   });  
+
+// Route to get books from CurrentlyReading by username
+router.post('/getBooksFromCurrentlyReading', (req, res) => {
+    const { username } = req.query;
+  
+    // Check if username is provided
+    if (!username) {
+      return res.status(400).send('Username is required');
+    }
+  
+    // Query the database to get books from CurrentlyReading for the given username
+    databaseConnection.query('SELECT * FROM CurrentlyReading WHERE username = ?', [username], (err, results) => {
+      if (err) {
+        console.error('Error executing query:', err);
+        return res.status(500).send('Internal server error');
+      }
+  
+      // Send the books from CurrentlyReading as JSON response
+      res.json(results);
+    });
+  });
+  
+  // Route to get books from WantToRead by username
+  router.post('/getBooksFromWantToRead', (req, res) => {
+    const { username } = req.query;
+  
+    // Check if username is provided
+    if (!username) {
+      return res.status(400).send('Username is required');
+    }
+  
+    // Query the database to get books from WantToRead for the given username
+    databaseConnection.query('SELECT * FROM WantToRead WHERE username = ?', [username], (err, results) => {
+      if (err) {
+        console.error('Error executing query:', err);
+        return res.status(500).send('Internal server error');
+      }
+  
+      // Send the books from WantToRead as JSON response
+      res.json(results);
+    });
+  });
+  
+  // Route to get books from AlreadyRead by username
+  router.post('/getBooksFromAlreadyRead', (req, res) => {
+    const { username } = req.query;
+  
+    // Check if username is provided
+    if (!username) {
+      return res.status(400).send('Username is required');
+    }
+  
+    // Query the database to get books from AlreadyRead for the given username
+    databaseConnection.query('SELECT * FROM AlreadyRead WHERE username = ?', [username], (err, results) => {
+      if (err) {
+        console.error('Error executing query:', err);
+        return res.status(500).send('Internal server error');
+      }
+  
+      // Send the books from AlreadyRead as JSON response
+      res.json(results);
+    });
+  });
 
 module.exports = router;
