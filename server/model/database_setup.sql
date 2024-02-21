@@ -13,7 +13,7 @@ CREATE TABLE User (
 
 -- Create Book table
 CREATE TABLE Book (
-    IBSN VARCHAR(13) PRIMARY KEY,
+    ISBN VARCHAR(13) PRIMARY KEY,
     book_name VARCHAR(100),
     book_description TEXT,
     cover_image LONGBLOB,
@@ -28,7 +28,34 @@ CREATE TABLE Review (
     username VARCHAR(50),
     stars INT,
     description TEXT,
-    FOREIGN KEY (ISBN) REFERENCES Book(IBSN),
+    FOREIGN KEY (ISBN) REFERENCES Book(ISBN),
+    FOREIGN KEY (username) REFERENCES User(username)
+);
+
+-- Create CurrentlyReading table
+CREATE TABLE CurrentlyReading (
+    ISBN VARCHAR(13),
+    username VARCHAR(50),
+    PRIMARY KEY (ISBN, username),
+    FOREIGN KEY (ISBN) REFERENCES Book(ISBN),
+    FOREIGN KEY (username) REFERENCES User(username)
+);
+
+-- Create WantToRead table
+CREATE TABLE WantToRead (
+    ISBN VARCHAR(13),
+    username VARCHAR(50),
+    PRIMARY KEY (ISBN, username),
+    FOREIGN KEY (ISBN) REFERENCES Book(ISBN),
+    FOREIGN KEY (username) REFERENCES User(username)
+);
+
+-- Create AlreadyRead table
+CREATE TABLE AlreadyRead (
+    ISBN VARCHAR(13),
+    username VARCHAR(50),
+    PRIMARY KEY (ISBN, username),
+    FOREIGN KEY (ISBN) REFERENCES Book(ISBN),
     FOREIGN KEY (username) REFERENCES User(username)
 );
 

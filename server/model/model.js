@@ -7,7 +7,7 @@ require('dotenv').config();
 const dbHost = process.env.DB_HOST;
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
-const sqlFilePath = './database/database_setup.sql';
+const sqlFilePath = './model/database_setup.sql';
 
 console.log(dbHost)
 console.log(dbUser)
