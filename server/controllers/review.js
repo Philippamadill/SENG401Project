@@ -3,7 +3,7 @@ const router = express.Router();
 const databaseConnection = require('../model/model');
 
 // 1. Get reviews given the ISBN of a book
-router.get('/getReviewsByISBN/:ISBN', (req, res) => {
+router.get('/getReviewsByISBN', (req, res) => {
   const { ISBN } = req.query;
 
     // Check if ISBN is provided
