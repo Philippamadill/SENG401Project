@@ -39,7 +39,7 @@ export default function NavBar(){
                             <a href='/wanttoread'>Want to read</a>
                         </li>
                         <li className='sidebar-links'>
-                            <a href='/toppicks'>Already read</a>
+                            <a href='/alreadyread'>Already read</a>
                         </li>
                         <li className='sidebar-links'>
                             <a href='/toppicks'>Top picks of the week</a>
