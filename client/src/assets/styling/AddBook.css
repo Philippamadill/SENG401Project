@@ -1,0 +1,111 @@
+#container {
+  margin: 0;
+  padding: 0;
+}
+
+div.input-oneline input {
+  margin: auto;
+  width: 90%;
+  height: 30px;
+  overflow-wrap: break-word;
+}
+
+div textarea {
+  width: 90%;
+  height: 100%;
+  overflow-wrap: break-word;
+  resize: none;
+}
+
+textarea,
+input {
+  border: none;
+  background-color: #f5f3f3;
+  border-radius: 5px;
+}
+div {
+  margin: 5% 0;
+}
+
+div#bookForm {
+  margin: 0;
+  padding-left: 5%;
+  display: grid;
+  width: 100%;
+  height: auto;
+  justify-content: space-around;
+  grid-template-rows: auto;
+  grid-template-columns: 50% 50%;
+  grid-template-areas:
+    "img overview"
+    "img authorName"
+    "bookName about"
+    "isbn about"
+    ". about"
+    "submit submit";
+}
+
+#uploadImage {
+  grid-area: img;
+}
+
+#bookName {
+  grid-area: bookName;
+}
+
+#bookISBN {
+  grid-area: isbn;
+}
+
+#bookOverview {
+  grid-area: overview;
+}
+
+#authorName {
+  grid-area: authorName;
+}
+
+#aboutAuthor {
+  grid-area: about;
+}
+
+#submitButton {
+  grid-area: submit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#submitButton button {
+  width: 185px;
+  height: 60px;
+  background-color: #2563eb;
+  color: aliceblue;
+  border: none;
+  border-radius: 10px;
+}
+
+#uploadArea {
+  background-color: #ffffff;
+}
+
+.heading {
+  margin: auto;
+  text-align: center;
+  color: #2563eb;
+}
+
+.required {
+  text-emphasis: bold;
+  color: red;
+}
+
+img {
+  width: auto;
+  height: auto;
+  max-width: 90%;
+  max-height: 250px;
+}
+
+#uploadArea {
+}
