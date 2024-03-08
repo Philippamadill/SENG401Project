@@ -5,8 +5,10 @@ import CurrentlyReading from '../pages/CurrentlyReading';
 import WantToRead from '../pages/WantToRead';
 import AlreadyRead from '../pages/AlreadyRead';
 import TopPicks from '../pages/TopPicks';
+import WriteReview from '../pages/WriteReview';
 import {BrowserRouter, Route,Routes,ProtectedRoute } from "react-router-dom";
 import Layout from "../Layout"
+
 
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
             <Route path = "/wanttoread" element = {<WantToRead />} />
             <Route path = "/alreadyread" element = {<AlreadyRead />} />
             <Route path = "/toppicks" element = {<TopPicks />} />
+            <Route path="/writeReview" element={<WriteReview />} />
           </Route>
         </Routes>
     </BrowserRouter>
