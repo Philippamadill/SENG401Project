@@ -130,7 +130,7 @@ export default function WriteReview(){
 
                         <div className ='feedback-wrapper'>
                             <label className='styled-heading'>
-                                Feedback: 
+                                Review: 
                                 <span className="required"> *</span>
                                 <br></br>
                                 
