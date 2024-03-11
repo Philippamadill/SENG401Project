@@ -1,0 +1,54 @@
+*{
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;
+}
+
+div wrapper{
+  width: 90%;
+  height: 100%;
+  resize: none;
+
+}
+
+.container{
+  display: flex;
+}
+.heading{
+  margin: auto;
+  text-align: center;
+  color: #2563eb;
+ }
+
+.panelLeft{
+  flex: 3.5;
+  margin: 10px;
+  padding: 15px;
+  height: 800px;
+ }
+
+.panelRight{
+  flex: 6.5;
+  margin: 10px;
+  padding: 15px;
+ }
+button{
+  width: 120px;
+  height: 40px;
+  background-color: #2563eb;
+  color: aliceblue;
+  border:none;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-left: auto;
+  margin-right: 30px;
+  margin-top: 70px;
+  font-weight: bold;
+}
+
+.book-cover{
+  height: 20em;
+  border-radius: 15px;
+  padding: 3px;
+  margin-left:15px;
+}
