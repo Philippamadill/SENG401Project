@@ -32,7 +32,7 @@ export default function RegisterPage(){
         <div className='register-page'>
         <div className='wrapper'>
         <form onSubmit={handleSubmit}>
-            <h1 className='register-text'>Regsiter</h1>
+            <h1 className='register-text'>Register</h1>
             <div className="input-box">
                 <input  value = {fName} type="text" placeholder='FIRST NAME' onChange={(event) => setFName(event.target.value)} />
                 <FaUser className='login-icon'/>

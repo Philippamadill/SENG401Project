@@ -1,6 +1,7 @@
 import './App.css';
 import LoginPage from '../pages/Login';
 import RegisterPage from '../pages/Register';
+import ViewBook from '../pages/ViewBook';
 import CurrentlyReading from '../pages/CurrentlyReading';
 import WantToRead from '../pages/WantToRead';
 import AlreadyRead from '../pages/AlreadyRead';
@@ -23,6 +24,7 @@ function App() {
             <Route path = "/currentlyreading" element = {<CurrentlyReading />} />
             <Route path = "/wanttoread" element = {<WantToRead />} />
             <Route path = "/alreadyread" element = {<AlreadyRead />} />
+            <Route path = "/viewbook" element = {<ViewBook />} />
             <Route path = "/toppicks" element = {<TopPicks />} />
           </Route>
         </Routes>

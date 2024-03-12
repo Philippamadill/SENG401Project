@@ -1,37 +1,56 @@
-*{
+/* *{
   margin: 0;
   padding: 0; 
   box-sizing: border-box;
+} */
+
+.wrapper{
+  display: grid;
+  gap:1%;
+  grid-template-areas:
+  'cover cover info info'
+  'cover cover info info'
+  'cover cover buttons buttons';
+}
+.book-info{
+  grid-area: info;
 }
 
-div wrapper{
-  width: 90%;
-  height: 100%;
-  resize: none;
-
+.book-buttons{
+  grid-area: buttons;
 }
 
-.container{
-  display: flex;
+.book-cover{
+  grid-area: cover;
+}
+
+
+h1{
+  font-size:7vh;
+  color: #4a4a4c;
+}
+
+h2{
+  font-size: 6vh;
+  color:#2563eb
+}
+
+h3{
+  font-size: 4vh;
+  color:#2563eb
+}
+
+h4{
+  font-size: 2vh;
+  color: #4a4a4c;
 }
 .heading{
   margin: auto;
   text-align: center;
-  color: #2563eb;
+  color: #4a4a4c;
  }
 
-.panelLeft{
-  flex: 3.5;
-  margin: 10px;
-  padding: 15px;
-  height: 800px;
- }
 
-.panelRight{
-  flex: 6.5;
-  margin: 10px;
-  padding: 15px;
- }
 button{
   width: 120px;
   height: 40px;
@@ -46,9 +65,14 @@ button{
   font-weight: bold;
 }
 
-.book-cover{
-  height: 20em;
-  border-radius: 15px;
-  padding: 3px;
-  margin-left:15px;
+.styled-heading{
+  color: #4a4a4c;
+  font-size:12px;
+  text-align:left;
+  margin: 10px;
+  font-weight:400;
+}
+
+.App{
+  text-align:center;
 }

@@ -1,6 +1,11 @@
 import React from 'react'
 import '../assets/styling/ViewBook.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { FaUser} from "react-icons/fa";
+import { IoMdKey } from "react-icons/io";
+import { MdEmail } from "react-icons/md";
+import {useNavigate} from 'react-router-dom'
+
 const book = {
     ISBN: 12,
     title: 'Harry Potter and the Philosopher\'s Stone',
@@ -12,18 +17,22 @@ const book = {
 }
 
 export default function ViewBook(){
-    const[hover, setHover] = useState(null);
+    // const[hover, setHover] = useState(null);
 
     return(
         <div className= 'ViewBook'>
             <div className= 'wrapper'>
-                <div className= 'panelLeft'>
+                <div className= 'panelRight'>
+                    
+                <div className= 'book-cover'>
+                    <img src= {`/bookCovers/${book.ISBN}.jpg`} alt={book.title}/>
+                </div> 
                 <div className= 'book-info'>
-                    {<h1 className= 'book-title'></h1> }
-                    <h2 className= 'book-author'></h2>
-                    <h3 className= 'book-genre'></h3>
-                    <h4 className= 'book-description'></h4>
-                    <h5 className= 'book-rating'></h5>
+                    <h3 className= 'book-title'>{book.title}</h3> 
+                    <h2 className= 'book-author'>{book.author}</h2>
+                    <h4 className= 'book-genre'>Genre: {book.genre}</h4>
+                    <h4 className= 'book-description'>Description: {book.description}</h4>
+                    <h4 className= 'book-rating'>Rating: {book.rating}</h4>
                 </div>
                 {/* if (loggedIn === true){ */}
                 <div className= 'book-buttons'>
@@ -39,13 +48,8 @@ export default function ViewBook(){
                             <p className= 'review-text'>review text</p>
                         </div>
                     </div>
-                </div>
-                <div className= 'panelRight'>
-                    <div className= 'book-cover'>
-                    <img src= {`/bookCovers/${book.ISBN}.jpg`} alt={book.title}/>
-                </div>
                     </div>
             </div>
         </div>
-    )
+    );
 }
