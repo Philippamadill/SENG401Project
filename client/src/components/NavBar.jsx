@@ -1,5 +1,5 @@
 import React from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate , Link} from 'react-router-dom'
 import { IconContext } from "react-icons";
 import { IoHomeSharp } from "react-icons/io5";
 import { BsEyeglasses } from "react-icons/bs";
@@ -10,15 +10,19 @@ import { GrUserAdmin } from "react-icons/gr";
 import '../assets/styling/NavBar.css';
 import Logo from "../assets/images/logo.jpg";
 import ProfileImg from "../assets/images/profile-img.png";
-
+import { UserContext , AuthenticationContext} from '../context/UserContext';
+import { useContext } from 'react';
 
 
 export default function NavBar(){
     
+    const {userInfo} = useContext(UserContext);
+    const {setAuthentication} = useContext(AuthenticationContext);
 
     const navigate = useNavigate();
 
     const handleLogout = () => {
+        setAuthentication({guest: false, isLoggedIn: false})
         navigate("/");
     }
 
@@ -33,16 +37,17 @@ export default function NavBar(){
             <div>
                 <ul>
                         <li className='sidebar-links'>
-                            <a href='/currentlyreading'>Currently reading</a>
+                            <Link to='/currentlyreading'>Currently reading</Link>
                         </li>
                         <li className='sidebar-links'>
-                            <a href='/wanttoread'>Want to read</a>
+                            <Link to='/wanttoread'>Want to read</Link>
                         </li>
                         <li className='sidebar-links'>
-                            <a href='/toppicks'>Already read</a>
+                            <Link to='/alreadyread'>Already read</Link>
                         </li>
                         <li className='sidebar-links'>
-                            <a href='/toppicks'>Top picks of the week</a>
+                            <Link to='/toppicks'>Top picks of the week</Link>
+            
                         </li>
                 </ul>
             </div>
@@ -50,7 +55,7 @@ export default function NavBar(){
             <div className='sidebar-profile'>
                 <img className='profile-img' src = {ProfileImg} alt='' />
                 <div className='profile-content'>
-                    <h2>username</h2>
+                    <h2>{userInfo.first_name} {userInfo.last_name}</h2>
                 </div>
                 <IconContext.Provider value={{ className: "sidebar-logout" }}>
                     <BiLogOut title='Sign Out' size={30} onClick={handleLogout}/>
