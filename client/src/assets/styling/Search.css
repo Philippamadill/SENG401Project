@@ -1,0 +1,28 @@
+.book {
+  width: 99%;
+  height: auto;
+  margin: 10px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  display: grid;
+  grid-template-areas:
+    "image title"
+    "image author";
+}
+input {
+  width: 90%;
+  height: 35px;
+  margin: 10px;
+}
+
+.cover {
+  grid-area: image;
+}
+
+.author {
+  grid-area: author;
+}
+
+.title {
+  grid-area: title;
+}
