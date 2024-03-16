@@ -1,9 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export default function TopPicks(){
-    return(
-        <div>
-            TEMP TEXT
-        </div>
-    )
+export default function TopPicks() {
+  return <div>TEMP TEXT</div>;
 }
