@@ -55,6 +55,7 @@ function AddBook() {
     console.log(response);
     if (response.status === 201) {
       setResponseText("Book Created Successfully");
+      navigate(`/viewBook/${bookISBN}`);
     } else {
       setResponseText(
         "There was an error with creating the book. Please try again"

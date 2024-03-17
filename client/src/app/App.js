@@ -30,7 +30,7 @@ function App() {
           <Route path="/addBook" element={<AddBook />} />
           <Route path="/search" element={<Search />} />
           <Route path="/writeReview" element={<WriteReview />} />
-          <Route path="/viewBook" element={<ViewBook />} />
+          <Route path="/viewBook/:ISBN" element={<ViewBook />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -5,6 +5,7 @@ import { FaUser } from "react-icons/fa";
 import { IoMdKey } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { useNavigate, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const book = {
   ISBN: 12,
@@ -18,11 +19,12 @@ const book = {
 
 export default function ViewBook(props) {
   // const[hover, setHover] = useState(null);
-  const ISBN = props.ISBN;
+  const params = useParams();
   const [books, setBooks] = useState();
-
+  console.log(params.ISBN);
   async function getBook() {
-    const route = "http://localhost:7003/book/getBookByISBN";
+    const route =
+      "http://localhost:7003/book/getBookByISBN?ISBN=" + params.ISBN;
     console.log(route);
     const response = await fetch(route, {
       method: "GET",
@@ -47,11 +49,17 @@ export default function ViewBook(props) {
           <img src={`/bookCovers/${book.ISBN}.jpg`} alt={book.title} />
         </div>
         <div className="book-info">
-          <h3 className="book-title">{book.title}</h3>
-          <h2 className="book-author">{book.author}</h2>
-          <h4 className="book-genre">Genre: {book.genre}</h4>
-          <h4 className="book-description">Description: {book.description}</h4>
-          <h4 className="book-rating">Rating: {book.rating}</h4>
+          {books != null && <h3 className="book-title">{books.book_name}</h3>}
+          {books != null && (
+            <h2 className="book-author">{books.author_name}</h2>
+          )}
+          {/*<h4 className="book-genre">Genre: {book.genre}</h4>*/}
+          {books != null && (
+            <h4 className="book-description">
+              Description: {books.book_description}
+            </h4>
+          )}
+          {/*<h4 className="book-rating">Rating: {book.rating}</h4>*/}
         </div>
         {/* if (loggedIn === true){ */}
         <div className="book-buttons">

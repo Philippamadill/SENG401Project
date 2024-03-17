@@ -9,6 +9,11 @@
     "image title"
     "image author";
 }
+
+.book:hover {
+  background-color: gainsboro;
+}
+
 input#searchBar {
   width: 90%;
   height: 35px;

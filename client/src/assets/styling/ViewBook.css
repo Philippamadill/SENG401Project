@@ -32,6 +32,7 @@
 .book-cover {
   grid-area: bcover;
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,12 +49,12 @@
   height: auto;
 }
 
-.book-author {
+.book-title {
   font-size: 6vh;
   color: #2563eb;
 }
 
-.book-title {
+.book-author {
   font-size: 4vh;
   color: #2563eb;
 }
