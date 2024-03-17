@@ -28,11 +28,7 @@ const Search = () => {
         <input
           type="text"
           placeholder="Search"
-<<<<<<< HEAD
           id="searchBar"
-=======
-          id="searchbar"
->>>>>>> 0920ed06d073a308ccce06ca376f1e79520a0385
           onChange={(e) => {
             setSearch(e.target.value);
             console.log(search);
@@ -43,7 +39,7 @@ const Search = () => {
         .filter((item) => {
           return search.toLowerCase() === ""
             ? item
-            : item.book_name.toLowerCase().startsWith(search);
+            : item.book_name.toLowerCase().startsWith(search.toLowerCase());
         })
         .map((item) => (
           <div className="book" key={item.ISBN}>
