@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 //import axios from 'axios'; // Assuming you're using Axios for HTTP requests
 import '../assets/styling/TopPick.css';
-
+import { UserContext , AuthenticationContext} from '../context/UserContext';
+import { useContext } from 'react';
 const dummyBooks = [
     
     {
@@ -28,6 +29,9 @@ const dummyBooks = [
 ];
 
 export default function TopPicks() {
+
+    const {userInfo} = useContext(UserContext);
+    const {setAuthentication} = useContext(AuthenticationContext);
     const [books, setBooks] = useState(dummyBooks);
 
     useEffect(() => {
@@ -44,6 +48,7 @@ export default function TopPicks() {
 
     return (
         <div>
+
             <div className='top-bar'>
             <h2 className='top-bar-title'>Want To Read</h2>
             <button className = "add-book">ADD NEW BOOK </button>

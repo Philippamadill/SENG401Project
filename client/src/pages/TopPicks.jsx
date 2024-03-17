@@ -52,19 +52,39 @@ const dummyBooks = [
 ];
 
 export default function TopPicks() {
-    const [books, setBooks] = useState(dummyBooks);
-
+    const [books, setBooks] = useState([]);
     useEffect(() => {
-        async function fetchBooks() {
-            try {
-                //const response = await axios.get('/api/books'); // Assuming your API endpoint is '/api/books'
-                //setBooks(response.data);
-            } catch (error) {
-                console.error('Error fetching books:', error);
-            }
-        }
-        fetchBooks();
+        GetBooks();
     }, []);
+
+    
+
+    async function GetBooks() {
+        try {
+            const response = await fetch("http://localhost:7003/book/getAllBooks", {
+                method: "GET",
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "GET",
+                    "Content-Type": "application/json"
+                }
+            });
+            
+            if (response.ok) {
+                const responseData = await response.json();
+                setBooks(responseData);
+                console.log(responseData)
+            } else {
+                console.log("Error Fetching Books");
+            }
+        } catch (error) {
+            console.error("Error Fetching Books:", error);
+        }
+    }
+
+
+
+
 
     return (
         <div>
@@ -74,11 +94,12 @@ export default function TopPicks() {
             </div>
             <div className="books-container">
                 {books.map(book => (
+                    
                     <div key={book.ISBN} className="book-card">
-                        <img className = "book-cover"src={`/bookCovers/${book.ISBN}.jpg`} alt={book.title} />
+                        <img className="book-cover" src={`data:image/jpeg;base64,${book.cover_image}`} alt={book.title} />
                         <div className="book-info">
-                            <div className="title"><h1>{book.title}</h1></div>
-                            <div className="author">{book.author}</div>
+                            <div className="title"><h1>{book.book_name}</h1></div>
+                            <div className="author">{book.author_name}</div>
                             <button className = "remove-book">Remove Book</button>
                         </div>
                     </div>
