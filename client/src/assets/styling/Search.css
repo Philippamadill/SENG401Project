@@ -9,10 +9,11 @@
     "image title"
     "image author";
 }
-input {
+input#searchBar {
   width: 90%;
   height: 35px;
-  margin: 10px;
+  margin: 10;
+  padding: 0px 1%;
 }
 
 .cover {
