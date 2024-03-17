@@ -48,6 +48,30 @@ export default function ViewBook(props) {
       navigate(`/writeReview/` + books.ISBN);
     }
   }
+  async function handleAdd(selector) {
+    console.log(userInfo.username);
+    if (userInfo.username === undefined) {
+      navigate(`/`);
+    } else {
+      const body = {
+        ISBN: books.ISBN,
+        username: userInfo.username,
+      };
+
+      const route = "http://localhost:7003/bookshelf/addBookTo" + selector;
+      console.log(route);
+      const response = await fetch(route, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+      console.log(response);
+      navigate(`/` + selector);
+    }
+  }
+
   useEffect(() => {
     getBook();
   }, []);
@@ -72,9 +96,30 @@ export default function ViewBook(props) {
         </div>
         {/* if (loggedIn === true){ */}
         <div className="book-buttons">
-          <button className="want">Add to "Want to Read"</button>
-          <button className="current">Add to "Currently Reading"</button>
-          <button className="read">Add to "Read"</button>
+          <button
+            className="want"
+            onClick={(e) => {
+              handleAdd("WantToRead");
+            }}
+          >
+            Add to "Want to Read"
+          </button>
+          <button
+            className="current"
+            onClick={(e) => {
+              handleAdd("CurrentlyReading");
+            }}
+          >
+            Add to "Currently Reading"
+          </button>
+          <button
+            className="read"
+            onClick={(e) => {
+              handleAdd("AlreadyRead");
+            }}
+          >
+            Add to "Read"
+          </button>
           <button
             className="leave-review"
             onClick={(e) => {
