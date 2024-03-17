@@ -1,10 +1,11 @@
 import React from "react";
 import "../assets/styling/ViewBook.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { FaUser } from "react-icons/fa";
 import { IoMdKey } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { useNavigate, Link } from "react-router-dom";
+import { AuthenticationContext, UserContext } from "../context/UserContext.jsx";
 import { useParams } from "react-router-dom";
 
 const book = {
@@ -21,6 +22,8 @@ export default function ViewBook(props) {
   // const[hover, setHover] = useState(null);
   const params = useParams();
   const [books, setBooks] = useState();
+  const navigate = useNavigate();
+  const { userInfo, setUserInfo } = useContext(UserContext);
   console.log(params.ISBN);
   async function getBook() {
     const route =
@@ -32,13 +35,19 @@ export default function ViewBook(props) {
         "Content-Type": "application/json",
       },
     });
-    console.log("Hello");
     console.log(response);
     const jsonResponse = await response.json();
     setBooks(jsonResponse);
     console.log(jsonResponse);
   }
-
+  function handleReview() {
+    console.log(userInfo.username);
+    if (userInfo.username === undefined) {
+      navigate(`/`);
+    } else {
+      navigate(`/writeReview/` + books.ISBN);
+    }
+  }
   useEffect(() => {
     getBook();
   }, []);
@@ -66,7 +75,14 @@ export default function ViewBook(props) {
           <button className="want">Add to "Want to Read"</button>
           <button className="current">Add to "Currently Reading"</button>
           <button className="read">Add to "Read"</button>
-          <button className="leave-review">Leave a review</button>
+          <button
+            className="leave-review"
+            onClick={(e) => {
+              handleReview();
+            }}
+          >
+            Leave a review
+          </button>
         </div>
         {/* } */}
       </div>
