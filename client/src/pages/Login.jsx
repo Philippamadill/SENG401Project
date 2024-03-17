@@ -52,7 +52,7 @@ export default function LoginPage() {
             isLoggedIn: true,
           }));
           setUserInfo(resData.user);
-          navigate("/currentlyreading");
+          navigate("/search");
         })
       );
     }

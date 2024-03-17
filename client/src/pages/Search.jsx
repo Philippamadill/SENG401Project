@@ -33,17 +33,22 @@ const Search = () => {
 
   return (
     <div>
-      <form>
-        <input
-          type="text"
-          placeholder="Search"
-          id="searchBar"
-          onChange={(e) => {
-            setSearch(e.target.value);
-            console.log(search);
-          }}
-        ></input>
-      </form>
+      <div id="header">
+        <form id="searchContainer">
+          <input
+            type="text"
+            placeholder="Search"
+            id="searchBar"
+            onChange={(e) => {
+              setSearch(e.target.value);
+              console.log(search);
+            }}
+          ></input>
+        </form>
+        <span id="addBook">
+          <Link to="/addBook">Add Book</Link>
+        </span>
+      </div>
       {books
         .filter((item) => {
           return search.toLowerCase() === ""
