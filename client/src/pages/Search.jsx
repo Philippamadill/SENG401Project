@@ -28,6 +28,7 @@ const Search = () => {
         <input
           type="text"
           placeholder="Search"
+          id="searchbar"
           onChange={(e) => {
             setSearch(e.target.value);
             console.log(search);

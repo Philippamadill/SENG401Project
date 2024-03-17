@@ -9,7 +9,7 @@
     "image title"
     "image author";
 }
-input {
+input#searchbar {
   width: 90%;
   height: 35px;
   margin: 10px;
