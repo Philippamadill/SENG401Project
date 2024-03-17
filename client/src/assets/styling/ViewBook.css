@@ -21,7 +21,7 @@
     "bcover bcover info info"
     "bcover bcover buttons buttons";
 }
-.book-info {
+.book-info_ {
   grid-area: info;
 }
 
@@ -29,7 +29,7 @@
   grid-area: buttons;
 }
 
-.book-cover {
+.book-cover_ {
   grid-area: bcover;
   width: 100%;
   height: 100%;
