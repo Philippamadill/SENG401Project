@@ -28,7 +28,11 @@ const Search = () => {
         <input
           type="text"
           placeholder="Search"
+<<<<<<< HEAD
           id="searchBar"
+=======
+          id="searchbar"
+>>>>>>> 0920ed06d073a308ccce06ca376f1e79520a0385
           onChange={(e) => {
             setSearch(e.target.value);
             console.log(search);
