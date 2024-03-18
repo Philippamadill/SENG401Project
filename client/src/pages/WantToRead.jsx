@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useNavigate, Link } from "react-router-dom";
 //import axios from 'axios'; // Assuming you're using Axios for HTTP requests
 import "../assets/styling/TopPick.css";
 import { AuthenticationContext, UserContext } from "../context/UserContext.jsx";
 export default function TopPicks() {
   const [books, setBooks] = useState([]);
   const { userInfo, setUserInfo } = useContext(UserContext);
+  const navigate = useNavigate();
   async function fetchBooks() {
     const route =
       "http://localhost:7003/bookshelf/getBooksFromWantToRead?username=" +
@@ -22,6 +24,23 @@ export default function TopPicks() {
     console.log(resp);
     console.log(books.length);
   }
+
+  async function deleteBook(e, ISBN) {
+    const route =
+      "http://localhost:7003/bookshelf/deleteBookFromWantToRead?ISBN=" +
+      ISBN +
+      "&username=" +
+      userInfo.username;
+    console.log(route);
+    await fetch(route, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    navigate(`/viewBook/` + ISBN);
+  }
   useEffect(() => {
     fetchBooks();
   }, []);
@@ -34,7 +53,13 @@ export default function TopPicks() {
       </div>
       <div className="books-container">
         {books.map((book) => (
-          <div key={book.ISBN} className="book-card">
+          <div
+            key={book.ISBN}
+            className="book-card"
+            onClick={(e) => {
+              navigate("/viewBook/" + book.ISBN);
+            }}
+          >
             <img
               className="book-cover"
               src={`/bookCovers/${book.ISBN}.jpg`}
@@ -45,7 +70,14 @@ export default function TopPicks() {
                 <h1>{book.book_name}</h1>
               </div>
               <div className="author">{book.author_name}</div>
-              <button className="remove-book">Remove Book</button>
+              <button
+                className="remove-book"
+                onClick={(e) => {
+                  deleteBook(e, book.ISBN);
+                }}
+              >
+                Remove Book
+              </button>
             </div>
           </div>
         ))}
