@@ -45,7 +45,14 @@ export default function ViewBook(props) {
     if (userInfo.username === undefined) {
       navigate(`/`);
     } else {
-      navigate(`/writeReview/` + books.ISBN);
+      navigate(
+        `/writeReview/` +
+          books.ISBN +
+          "/" +
+          books.book_name +
+          "/" +
+          books.author_name
+      );
     }
   }
   async function handleAdd(selector) {
