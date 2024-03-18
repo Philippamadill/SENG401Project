@@ -65,7 +65,7 @@ const Search = () => {
             }}
           >
             <h2 className="title">Title: {item.book_name}</h2>
-            <p className="author">By: {item.book_name}</p>
+            <p className="author">By: {item.author_name}</p>
             <img
               className="cover"
               src={`data:image/jpeg;base64,${item.cover_image}`}
