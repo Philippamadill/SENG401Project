@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+
+.required {
+    text-emphasis: bold;
+    color: red;
+}
+
+div wrapper{
+width: 90%;
+  height: 100%;
+  resize: none;
+
+}
+
+.container{
+    /* margin-top: 10%; */
+    display: flex;
+}
+
+
+.heading {
+    margin: auto;
+    text-align: center;
+    color: #2563eb;
+  }
+
+.panelLeft{
+    flex: 3.5; 
+    margin: 10px; /* Optional: Add margin for spacing between divs */
+    padding: 15px; /* Optional: Add padding for content spacing */
+    /*border-right: 1px solid #ccc; /* Optional: Add a border for visual separation */
+    height: 800px;
+}
+
+.panelRight{
+    flex: 6.5;
+    margin: 10px; /* Optional: Add margin for spacing between divs */
+    padding: 15px; /*Optional: Add padding for content spacing */
+}
+
+.styled-heading {
+    color: #4a4a4c;
+    font-size: 12px;
+    text-align: left;
+    margin: 10px;
+    /* padding: 15px; */
+    /* font-family: monospace; */
+    font-weight: 400
+  }
+
+
+  .App {
+    /* font-family: monospace; */
+    text-align: center;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  .star {
+    cursor: pointer;
+    font-size: 2rem;
+    margin: 5px;
+  }
+
+  /* .star-container-wrapper{
+    margin: 10px;
+    /* padding: 15px;  */
+    /*} */
+
+textarea,  input{
+    margin: 10px;
+    border: none;
+    background-color: #f5f3f3;
+    border-radius: 5px;
+    width: 80%; /* Set the width to your desired size */
+    height: 180px; /* Set the height to your desired size */
+    resize: vertical; /* Prevent users from resizing the textarea */
+  }
+
+  .styled-input-box{
+    width: 500px;;
+    margin: 4px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 12px;
+    padding: 3%;
+  }
+  .name-container-wrapper .feedback-wrapper .star-container-wrapper{
+    margin: 15px;
+    font-size: 12px;
+  }
+
+  .styled-username{
+    margin: 20px;
+    /* text-align: center; */
+    font-size: 14px;
+  }
+
+  .rating-container{
+    margin-left: 15px;
+  } 
+
+  /* .big-container {
+    text-align: center;
+  } */
+
+
+  #submitButton button {
+    width: 120px;
+    height: 40px;
+    background-color: #2563eb;
+    color: aliceblue;
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    margin-left: auto;
+    margin-right: 30px;
+    margin-top: 70px;
+    font-weight: bold; 
+  }
+
+  #submitButton {
+    grid-area: submit; 
+    display: flex;
+    align-items: center;
+    justify-content: left; 
+  }
+
+  .textarea-style{
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+  }
+
+  .book-cover{
+    height: 20em;
+    border-radius: 15px;
+    padding: 3px;
+    /* align-items: center; */
+    margin-left: 15px;
+}
+

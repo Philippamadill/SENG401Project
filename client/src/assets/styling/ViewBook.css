@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.viewBook {
+  width: 100%;
+  height: 100%;
+}
+.wrapper-view {
+  padding: 0;
+  margin: 10px 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 25% 25%;
+  gap: 1%;
+  grid-template-areas:
+    "bcover bcover info info"
+    "bcover bcover info info"
+    "bcover bcover buttons buttons";
+}
+.book-info_ {
+  grid-area: info;
+}
+
+.book-buttons {
+  grid-area: buttons;
+}
+
+.book-cover_ {
+  grid-area: bcover;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-cover img {
+  width: auto;
+  height: auto;
+}
+
+.book-reviews {
+  width: 95%;
+  margin: 2.5%;
+  height: auto;
+}
+
+.book-title {
+  font-size: 6vh;
+  color: #2563eb;
+}
+
+.book-author {
+  font-size: 4vh;
+  color: #2563eb;
+}
+
+.book-genre,
+.book-description,
+.book-rating {
+  font-size: 2vh;
+  color: #4a4a4c;
+}
+.heading {
+  margin: auto;
+  text-align: center;
+  color: #4a4a4c;
+}
+
+.want,
+.current,
+.read,
+.leave-review {
+  width: 120px;
+  height: 40px;
+  background-color: #2563eb;
+  color: aliceblue;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-left: auto;
+  margin-right: 30px;
+  margin-top: 70px;
+  font-weight: bold;
+}
+
+.styled-heading {
+  color: #4a4a4c;
+  font-size: 12px;
+  text-align: left;
+  margin: 10px;
+  font-weight: 400;
+}
