@@ -46,6 +46,9 @@ export default function NavBar() {
             <Link to="/alreadyread">Already read</Link>
           </li>
           <li className="sidebar-links">
+            <Link to="/reviews">Your Reviews</Link>
+          </li>
+          <li className="sidebar-links">
             <Link to="/toppicks">Top picks of the week</Link>
           </li>
         </ul>
