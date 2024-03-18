@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate, Link } from "react-router-dom";
 //import axios from 'axios'; // Assuming you're using Axios for HTTP requests
 import "../assets/styling/TopPick.css";
 import { UserContext , AuthenticationContext} from '../context/UserContext';
-import { useContext } from 'react';
-
 const dummyBooks = [
   {
     ISBN: "1",

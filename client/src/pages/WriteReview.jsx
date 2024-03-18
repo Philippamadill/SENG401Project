@@ -4,6 +4,7 @@ import { useState, useEffect, useContext } from "react";
 import { AuthenticationContext, UserContext } from "../context/UserContext.jsx";
 import { useNavigate, Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { MdNoAccounts } from "react-icons/md";
 
 //component works to get the book data - but need to figure out how to make it accessible in the write review function
 
@@ -45,11 +46,6 @@ import { useParams } from "react-router-dom";
 //   };
 
 //hardcoded a book for now
-const book = {
-  ISBN: "12",
-  title: "Harry Potter and the Philosophers Stone",
-  author: "J.K. Rowling",
-};
 
 export default function WriteReview() {
   const navigate = useNavigate();
@@ -58,12 +54,18 @@ export default function WriteReview() {
   const [hover, setHover] = useState(null);
   const [totalStars, setTotalStars] = useState(5);
   const [failText, setFailText] = useState("");
-
+  //const [book, setBook] = useState();
   const { userInfo, setUserInfo } = useContext(UserContext);
   const { authentication, setAuthentication } = useContext(
     AuthenticationContext
   );
   console.log(userInfo);
+
+  const book = {
+    ISBN: params.ISBN,
+    title: params.title,
+    author: params.author,
+  };
 
   //works - fetches username from context
   const username = userInfo.username;
@@ -121,9 +123,9 @@ export default function WriteReview() {
     ) {
       //need to figure out what to do in terms of error handling
       setFailText(response.statusText);
-    } else if (response.status == 201) {
+    } else if (response.status === 201) {
       //successfull case
-      //add navigation to a different page - probably back to philipas page
+      navigate("/viewBook/" + book.ISBN);
     }
   }
 
@@ -149,10 +151,12 @@ export default function WriteReview() {
                 alt={book.title}
               />
 
-              {/* <div className="book-info">
-                            <div className="title"><h1>{book.title}</h1></div>
-                            <div className="author">{book.author}</div>
-                        </div> */}
+              <div className="book-info">
+                <div className="title">
+                  <h1>{book.title}</h1>
+                </div>
+                <div className="author">{book.author}</div>
+              </div>
             </div>
           </div>
           {/* <div><h5>{bookCover}</h5></div> */}
