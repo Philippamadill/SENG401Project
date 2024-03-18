@@ -22,9 +22,11 @@ export default function ViewBook(props) {
   // const[hover, setHover] = useState(null);
   const params = useParams();
   const [books, setBooks] = useState();
+  const [reviews, setReviews] = useState([]);
   const navigate = useNavigate();
   const { userInfo, setUserInfo } = useContext(UserContext);
   console.log(params.ISBN);
+
   async function getBook() {
     const route =
       "http://localhost:7003/book/getBookByISBN?ISBN=" + params.ISBN;
@@ -40,6 +42,23 @@ export default function ViewBook(props) {
     setBooks(jsonResponse);
     console.log(jsonResponse);
   }
+
+  async function getReviews() {
+    const route =
+      "http://localhost:7003/review/getReviewsByISBN?ISBN=" + params.ISBN;
+    console.log(route);
+    const response = await fetch(route, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(response);
+    const jsonResponse = await response.json();
+    setReviews(jsonResponse);
+    console.log(jsonResponse);
+  }
+
   function handleReview() {
     console.log(userInfo.username);
     if (userInfo.username === undefined) {
@@ -81,6 +100,7 @@ export default function ViewBook(props) {
 
   useEffect(() => {
     getBook();
+    getReviews();
   }, []);
   return (
     <div className="ViewBook">
@@ -139,10 +159,14 @@ export default function ViewBook(props) {
         {/* } */}
       </div>
       <div className="book-reviews">
-        <h6 className="stars">review rating</h6>
-        <div className="review">
-          <p className="review-text">review text</p>
-        </div>
+        <h4 className="stars">Reviews</h4>
+        {reviews.map((review) => (
+          <div className="review-container">
+            <div className="review-Stars">Rating: {review.stars} / 5</div>
+            <div className="review-Username">Posted by: {review.username}</div>
+            <div className="review-Desc">{review.description}</div>
+          </div>
+        ))}
       </div>
     </div>
   );
