@@ -53,7 +53,7 @@ export default function TopPicks() {
       try {
           console.log(userInfo.username)
           const response = await fetch("http://localhost:7003/bookshelf/getBooksFromCurrentlyReading?username="+userInfo.username, {
-              method: "POST",
+              method: "GET",
               headers: {
                   "Access-Control-Allow-Origin": "*",
                   "Access-Control-Allow-Methods": "GET",

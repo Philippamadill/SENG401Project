@@ -2,5 +2,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-height: 100%;
+}
+
+
+.review-card{
+    display: flex;
+    flex-direction: row;
+}
+
+.books-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.review-info{
+    display: block;
     
 }
