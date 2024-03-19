@@ -5,7 +5,6 @@ import CurrentlyReading from "../pages/CurrentlyReading";
 import WantToRead from "../pages/WantToRead";
 import AlreadyRead from "../pages/AlreadyRead";
 import TopPicks from "../pages/TopPicks";
-import Reviews from "../pages/Reviews";
 import Protected from "./Protected";
 import AddBook from "../pages/AddBook";
 import Search from "../pages/Search";
@@ -28,7 +27,6 @@ function App() {
           <Route path="/wanttoread" element={<WantToRead />} />
           <Route path="/alreadyread" element={<AlreadyRead />} />
           <Route path="/toppicks" element={<TopPicks />} />
-          <Route path="/reviews" element={<Reviews />} />
           <Route path="/addBook" element={<AddBook />} />
           <Route path="/search" element={<Search />} />
           <Route
