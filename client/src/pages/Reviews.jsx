@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 //import axios from 'axios'; // Assuming you're using Axios for HTTP requests
-import '../assets/styling/TopPick.css';
 import '../assets/styling/Reviews.css';
 
 import { UserContext , AuthenticationContext} from '../context/UserContext';
@@ -138,7 +137,11 @@ export default function Reviews() {
             <div className="books-container">
                 {books.map(book => (
                     <div key={book.ISBN} className="review-card">
-                        <img className="review-cover" src={`/bookCovers/100.jpg`} alt={book.title} />
+                        <img
+                        className="book-cover"
+                        src={`/bookCovers/${book.ISBN}.jpg`}
+                        alt={book.book_name}
+                        />
                         <div className="review-info">
                             <div className="title"><h1>{book.book_name}</h1></div>
                             <div className="author">{book.author_name}</div>

@@ -5,11 +5,11 @@ import CurrentlyReading from "../pages/CurrentlyReading";
 import WantToRead from "../pages/WantToRead";
 import AlreadyRead from "../pages/AlreadyRead";
 import TopPicks from "../pages/TopPicks";
-import Reviews from "../pages/Reviews";
 import Protected from "./Protected";
 import AddBook from "../pages/AddBook";
 import Search from "../pages/Search";
 import ViewBook from "../pages/ViewBook";
+import Reviews from "../pages/Reviews";
 import WriteReview from "../pages/WriteReview";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "../Layout";
@@ -27,8 +27,8 @@ function App() {
           <Route path="/currentlyreading" element={<CurrentlyReading />} />
           <Route path="/wanttoread" element={<WantToRead />} />
           <Route path="/alreadyread" element={<AlreadyRead />} />
-          <Route path="/toppicks" element={<TopPicks />} />
           <Route path="/reviews" element={<Reviews />} />
+          <Route path="/toppicks" element={<TopPicks />} />
           <Route path="/addBook" element={<AddBook />} />
           <Route path="/search" element={<Search />} />
           <Route
