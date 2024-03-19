@@ -132,7 +132,6 @@ export default function Reviews() {
         <div>
             <div className='top-bar'>
                 <h2 className='top-bar-title'>Reviews</h2>
-                <button className="add-book">ADD NEW REVIEW </button>
             </div>
             <div className="books-container">
                 {books.map(book => (
