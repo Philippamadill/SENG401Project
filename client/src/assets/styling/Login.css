@@ -95,3 +95,21 @@
 .submit-register a:visited{
     text-decoration: none;
 }
+
+.submit-guest{
+    background-color: rgba(37, 99, 235, 1);
+    border: 0.5pt solid black;
+    border-radius: 5px;
+    color: white;
+    margin-top: 5%;
+    margin-left: 25%;
+}
+
+.submit-guest a{
+    text-decoration: none;
+    color: black;
+}
+
+.submit-guest a:visited{
+    text-decoration: none;
+}
