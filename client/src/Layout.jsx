@@ -3,7 +3,7 @@ import NavBar from "./components/NavBar";
 
 export default function Layout(){
     return(
-        <div style={{ display: "flex" }}>
+        <div >
             <NavBar />
             <main style={{ marginLeft : "25%" } }>
                 <Outlet />
