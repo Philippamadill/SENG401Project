@@ -48,6 +48,44 @@ const dummyBooks = [
     title: "Book Title 3",
     author: "Author 3",
   },
+  {
+    ISBN: "1",
+    title: "Book Title 3",
+    author: "Author 3",
+  },
+  {
+    ISBN: "1",
+    title: "Book Title 3",
+    author: "Author 3",
+  },
+  {
+    ISBN: "1",
+    title: "Book Title 3",
+    author: "Author 3",
+  },
+
+  {
+    ISBN: "1",
+    title: "Book Title 3",
+    author: "Author 3",
+  },
+  {
+    ISBN: "1",
+    title: "Book Title 3",
+    author: "Author 3",
+  },
+  {
+    ISBN: "1",
+    title: "Book Title 3",
+    author: "Author 3",
+  },
+
+  {
+    ISBN: "1",
+    title: "Book Title 3",
+    author: "Author 3",
+  },
+  
   // Add more dummy book objects as needed
 ];
 

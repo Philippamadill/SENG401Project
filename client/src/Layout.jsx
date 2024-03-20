@@ -5,7 +5,7 @@ export default function Layout(){
     return(
         <div style={{ display: "flex" }}>
             <NavBar />
-            <main style={{ flex: 1 }}>
+            <main style={{ marginLeft : "25%" } }>
                 <Outlet />
             </main>
         </div>
