@@ -1,5 +1,7 @@
 import "./App.css";
 import LoginPage from "../pages/Login";
+import AltLogin from "../pages/AltLogin";
+import AltRegister from "../pages/AltRegister";
 import RegisterPage from "../pages/Register";
 import CurrentlyReading from "../pages/CurrentlyReading";
 import WantToRead from "../pages/WantToRead";
@@ -35,8 +37,8 @@ function App() {
             </Route>
               <Route index element = {<TopPicks />} />
               <Route path = "/toppicks" element = {<TopPicks />} />
-              <Route path = "/login" element = {<LoginPage />} />
-              <Route path = "/register" element = {<RegisterPage />} />
+              <Route path = "/login" element = {<AltLogin />} />
+              <Route path = "/register" element = {<AltRegister />} />
               <Route path="/search" element={<Search />} />
               <Route path="/viewBook/:ISBN" element={<ViewBook />} />
           </Route>

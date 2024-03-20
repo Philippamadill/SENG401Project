@@ -1,9 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    max-height: 100%;
-}
+
 
 
 .review-card{
@@ -13,7 +8,7 @@
     margin: 0;
 }
 
-.books-container{
+.books-container-review{
     display: flex;
     flex-direction: column;
 }

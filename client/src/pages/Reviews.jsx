@@ -133,7 +133,7 @@ export default function Reviews() {
             <div className='top-bar'>
                 <h2 className='top-bar-title'>Reviews</h2>
             </div>
-            <div className="books-container">
+            <div className="books-container-review">
                 {books.map(book => (
                     <div key={book.ISBN} className="review-card">
                         <img
