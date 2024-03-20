@@ -28,8 +28,9 @@ function App() {
               <Route path = "/alreadyread" element = {<AlreadyRead />} />
               <Route path="/addBook" element={<AddBook />} />
             </Route>
+              <Route index element = {<TopPicks />} />
               <Route path = "/toppicks" element = {<TopPicks />} />
-              <Route index element = {<LoginPage />} />
+              <Route path = "/login" element = {<LoginPage />} />
               <Route path = "/register" element = {<RegisterPage />} />
               <Route path="/reviews" element={<Reviews />} />
               <Route path="/search" element={<Search />} />

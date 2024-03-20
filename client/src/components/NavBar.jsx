@@ -20,7 +20,7 @@ export default function NavBar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    setAuthentication({ guest: false, isLoggedIn: false });
+    setAuthentication({ guest: true, isLoggedIn: false });
     navigate("/");
   };
 
