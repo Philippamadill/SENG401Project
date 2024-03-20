@@ -27,17 +27,17 @@ function App() {
               <Route path = "/wanttoread" element = {<WantToRead />} />
               <Route path = "/alreadyread" element = {<AlreadyRead />} />
               <Route path="/addBook" element={<AddBook />} />
+              <Route
+                path="/writeReview/:ISBN/:title/:author"
+                element={<WriteReview />}
+              />
+              <Route path="/reviews" element={<Reviews />} />
             </Route>
               <Route index element = {<TopPicks />} />
               <Route path = "/toppicks" element = {<TopPicks />} />
               <Route path = "/login" element = {<LoginPage />} />
               <Route path = "/register" element = {<RegisterPage />} />
-              <Route path="/reviews" element={<Reviews />} />
               <Route path="/search" element={<Search />} />
-              <Route
-                path="/writeReview/:ISBN/:title/:author"
-                element={<WriteReview />}
-              />
               <Route path="/viewBook/:ISBN" element={<ViewBook />} />
           </Route>
         </Routes>
