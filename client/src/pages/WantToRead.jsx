@@ -46,7 +46,7 @@ export default function TopPicks() {
   async function GetAlreadyRead() {
       try {
           console.log(userInfo.username)
-          const response = await fetch("http://localhost:7003/bookshelf/getBooksFromCurrentlyReading?username="+userInfo.username, {
+          const response = await fetch("http://localhost:7003/bookshelf/getBooksFromWantToRead?username="+userInfo.username, {
               method: "POST",
               headers: {
                   "Access-Control-Allow-Origin": "*",
