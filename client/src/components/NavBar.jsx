@@ -14,14 +14,20 @@ import { UserContext, AuthenticationContext } from "../context/UserContext";
 import { useContext } from "react";
 
 export default function NavBar() {
-  const { userInfo } = useContext(UserContext);
-  const { setAuthentication } = useContext(AuthenticationContext);
+  const { userInfo, setUserInfo } = useContext(UserContext);
+  const { authentication, setAuthentication } = useContext(AuthenticationContext);
 
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    setAuthentication({ guest: false, isLoggedIn: false });
+    setAuthentication({ guest: true, isLoggedIn: false });
+    setUserInfo({first_name: "GUEST" , last_name : ""});
     navigate("/");
+  };
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    navigate("/login");
   };
 
   return (
@@ -61,9 +67,18 @@ export default function NavBar() {
             {userInfo.first_name} {userInfo.last_name}
           </h2>
         </div>
-        <IconContext.Provider value={{ className: "sidebar-logout" }}>
-          <BiLogOut title="Sign Out" size={30} onClick={handleLogout} />
-        </IconContext.Provider>
+        {
+          authentication.isLoggedIn &&
+          <IconContext.Provider value={{ className: "sidebar-logout" }}>
+            <BiLogOut title="Sign Out" size={30} onClick={handleLogout} />      
+          </IconContext.Provider>
+        }
+        {
+          authentication.guest &&
+          <button className="sidebar-login" onClick={handleLogin}>
+            Login
+          </button>
+        }
       </div>
     </nav>
   );

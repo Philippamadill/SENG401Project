@@ -91,4 +91,14 @@
     background-color: lightblue;
   }
 
+  .sidebar-login{
+    background-color: rgba(37, 99, 235, 1);
+    border: 0.5pt solid black;
+    border-radius: 5px;
+    width: 10vh;
+    height: 4vh;
+    margin-top: 4%;
+    color: white;
+}
+
 

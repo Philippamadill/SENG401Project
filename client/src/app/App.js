@@ -21,27 +21,30 @@ import { useContext } from "react";
 function App() {
   const { authentication } = useContext(AuthenticationContext);
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route index element={<AltLogin />} />
-        <Route path="/register" element={<AltRegister />} />
-        <Route element={<Layout />}>
-          <Route path="/currentlyreading" element={<CurrentlyReading />} />
-          <Route path="/wanttoread" element={<WantToRead />} />
-          <Route path="/alreadyread" element={<AlreadyRead />} />
-          <Route path="/reviews" element={<Reviews />} />
-          <Route path="/toppicks" element={<TopPicks />} />
-          <Route path="/addBook" element={<AddBook />} />
-          <Route path="/search" element={<Search />} />
-          <Route
-            path="/writeReview/:ISBN/:title/:author"
-            element={<WriteReview />}
-          />
-          <Route path="/viewBook/:ISBN" element={<ViewBook />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route element = {<Layout />}>
+            <Route element = {<Protected isLoggedIn = {authentication.isLoggedIn} guest = {authentication.guest} />}>
+              <Route path = "/currentlyreading" element = {<CurrentlyReading />} />
+              <Route path = "/wanttoread" element = {<WantToRead />} />
+              <Route path = "/alreadyread" element = {<AlreadyRead />} />
+              <Route path="/addBook" element={<AddBook />} />
+              <Route
+                path="/writeReview/:ISBN/:title/:author"
+                element={<WriteReview />}
+              />
+              <Route path="/reviews" element={<Reviews />} />
+            </Route>
+              <Route index element = {<TopPicks />} />
+              <Route path = "/toppicks" element = {<TopPicks />} />
+              <Route path = "/login" element = {<AltLogin />} />
+              <Route path = "/register" element = {<AltRegister />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="/viewBook/:ISBN" element={<ViewBook />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+
   );
 }
-
 export default App;
