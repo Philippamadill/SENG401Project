@@ -18,18 +18,19 @@ function App() {
   return (
       <BrowserRouter>
         <Routes>
-          <Route index element = {<LoginPage />} />
-          <Route path = "/register" element = {<RegisterPage />} />
           <Route element = {<Layout />}>
-                <Route path = "/currentlyreading" element = {<CurrentlyReading />} />
-                <Route path = "/wanttoread" element = {<WantToRead />} />
-                <Route path = "/alreadyread" element = {<AlreadyRead />} />
-                <Route path = "/toppicks" element = {<TopPicks />} />
-              </Route>
+            <Route element = {<Protected isLoggedIn = {authentication.isLoggedIn} guest = {authentication.guest} />}>
+              <Route path = "/currentlyreading" element = {<CurrentlyReading />} />
+              <Route path = "/wanttoread" element = {<WantToRead />} />
+              <Route path = "/alreadyread" element = {<AlreadyRead />} />
+            </Route>
+              <Route path = "/toppicks" element = {<TopPicks />} />
+              <Route index element = {<LoginPage />} />
+              <Route path = "/register" element = {<RegisterPage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
 
   );
 }
-
 export default App;
