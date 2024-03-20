@@ -1,11 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import useLocalStorage from "use-local-storage";
+
 
 export const UserContext = createContext({})
 export const AuthenticationContext = createContext({})
 
 export function UserContextProvider({children}){
-    const [userInfo, setUserInfo] = useState({})
-    const [authentication, setAuthentication] = useState({guest: true, isLoggedIn: false})
+    const [userInfo, setUserInfo] = useLocalStorage("user", {})
+    const [authentication, setAuthentication] = useLocalStorage("auth", {guest: true, isLoggedIn: false})
+
 
     return (
         <AuthenticationContext.Provider value={{authentication, setAuthentication}}>

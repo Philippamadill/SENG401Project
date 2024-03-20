@@ -63,6 +63,16 @@ export default function LoginPage() {
     navigate("/register");
   };
 
+  const handleGuest = (event) => {
+    event.preventDefault();
+    setAuthentication((prevState) => ({
+      guest: true,
+      isLoggedIn: false,
+    }));
+    setUserInfo({first_name: "GUEST" , last_name : ""});
+    navigate("/search");
+  };
+
   return (
     <div className="login-page">
       <div className="wrapper">
@@ -93,7 +103,11 @@ export default function LoginPage() {
             <button className="submit-register" onClick={handleRegister}>
               Register
             </button>
+
           </div>
+          <button className="submit-guest" onClick={handleGuest}>
+              Continue As Guest?
+          </button>
           <h2 className="on-fail">{failText}</h2>
         </form>
       </div>
