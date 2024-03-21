@@ -1,7 +1,7 @@
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import uploadImage from "../assets/images/up.png";
 import "../assets/styling/AddBook.css";
-import { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
 
 function AddBook() {
   const [files, setFiles] = useState();
@@ -181,7 +181,7 @@ function AddBook() {
           <div id="resp">
             <h2>{responseText}</h2>
           </div>
-          <div id="submitButton">
+          <div id="addBookSubmitButton">
             <button className="submit" name="addButton" onClick={HandleAddBook}>
               Add Book
             </button>

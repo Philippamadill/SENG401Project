@@ -121,3 +121,6 @@
 }
 
 
+.book-reviews > div, .book-reviews > div > div {
+  margin: 5% 0;
+}
