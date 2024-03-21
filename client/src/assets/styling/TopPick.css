@@ -53,8 +53,7 @@
     gap: 8px;
     font-weight: 700;
     color: rgb(0, 0, 0);
-
-
+    margin: 1% 0 0 0;
     /* Red/100 */
     background: #F8D7DA;
     border: 1px solid #1f1f1f;
@@ -98,7 +97,7 @@
 
 .top-bar{
     margin: 20px;
-    justify-content: space-between;
+    justify-content: center;
     display: flex;
 }
 

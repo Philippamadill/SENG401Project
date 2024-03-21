@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "../assets/styling/Search.css";
 const Search = () => {
   const [search, setSearch] = useState("");
@@ -64,8 +64,8 @@ const Search = () => {
               goToBook(e, item.ISBN);
             }}
           >
-            <h2 className="title">Title: {item.book_name}</h2>
-            <p className="author">By: {item.author_name}</p>
+            <h2 className="title">{item.book_name}</h2>
+            <p className="author">By {item.author_name}</p>
             <img
               className="cover"
               src={`data:image/jpeg;base64,${item.cover_image}`}
