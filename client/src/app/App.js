@@ -1,22 +1,22 @@
-import "./App.css";
-import LoginPage from "../pages/Login";
-import AltLogin from "../pages/AltLogin";
-import AltRegister from "../pages/AltRegister";
-import RegisterPage from "../pages/Register";
-import CurrentlyReading from "../pages/CurrentlyReading";
-import WantToRead from "../pages/WantToRead";
-import AlreadyRead from "../pages/AlreadyRead";
-import TopPicks from "../pages/TopPicks";
-import Protected from "./Protected";
-import AddBook from "../pages/AddBook";
-import Search from "../pages/Search";
-import ViewBook from "../pages/ViewBook";
-import Reviews from "../pages/Reviews";
-import WriteReview from "../pages/WriteReview";
+import { useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "../Layout";
 import { AuthenticationContext } from "../context/UserContext";
-import { useContext } from "react";
+import AddBook from "../pages/AddBook";
+import AlreadyRead from "../pages/AlreadyRead";
+import AltLogin from "../pages/AltLogin";
+import AltRegister from "../pages/AltRegister";
+import CurrentlyReading from "../pages/CurrentlyReading";
+import LoginPage from "../pages/Login";
+import RegisterPage from "../pages/Register";
+import Reviews from "../pages/Reviews";
+import Search from "../pages/Search";
+import TopPicks from "../pages/TopPicks";
+import ViewBook from "../pages/ViewBook";
+import WantToRead from "../pages/WantToRead";
+import WriteReview from "../pages/WriteReview";
+import "./App.css";
+import Protected from "./Protected";
 
 function App() {
   const { authentication } = useContext(AuthenticationContext);
@@ -37,11 +37,13 @@ function App() {
             </Route>
               <Route index element = {<TopPicks />} />
               <Route path = "/toppicks" element = {<TopPicks />} />
-              <Route path = "/login" element = {<AltLogin />} />
-              <Route path = "/register" element = {<AltRegister />} />
+              
               <Route path="/search" element={<Search />} />
               <Route path="/viewBook/:ISBN" element={<ViewBook />} />
+              
           </Route>
+          <Route path = "/login" element = {<AltLogin />} />
+          <Route path = "/register" element = {<AltRegister />} />
         </Routes>
       </BrowserRouter>
 
