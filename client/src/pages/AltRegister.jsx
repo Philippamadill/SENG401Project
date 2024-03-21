@@ -1,14 +1,13 @@
-import React from 'react';
-import '../assets/styling/AltLogin.css';
-import Logo from "../assets/images/logo.jpg";
-import BookLogo from "../assets/images/bookshelf.jpg";
-import { useState } from 'react';
-import { FaUser} from "react-icons/fa";
+import React, { useState } from 'react';
+import { FaUser } from "react-icons/fa";
 import { IoMdKey } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
+import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {useNavigate, Link} from 'react-router-dom'
+import BookLogo from "../assets/images/bookshelf.jpg";
+import Logo from "../assets/images/logo.jpg";
+import '../assets/styling/AltLogin.css';
 
 export default function AltRegister(){
 
@@ -63,7 +62,7 @@ export default function AltRegister(){
     }
 
     const handleLoginReturn = () =>{
-        navigate("/")
+        navigate("/login")
     }
 
     return(
