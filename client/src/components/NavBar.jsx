@@ -1,17 +1,16 @@
-import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useContext } from "react";
 import { IconContext } from "react-icons";
-import { IoHomeSharp } from "react-icons/io5";
-import { BsEyeglasses } from "react-icons/bs";
-import { MdOutlineClass } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
-import { RiReservedFill } from "react-icons/ri";
+import { BsEyeglasses } from "react-icons/bs";
 import { GrUserAdmin } from "react-icons/gr";
-import "../assets/styling/NavBar.css";
+import { IoHomeSharp } from "react-icons/io5";
+import { MdOutlineClass } from "react-icons/md";
+import { RiReservedFill } from "react-icons/ri";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/images/logo.jpg";
 import ProfileImg from "../assets/images/profile-img.png";
-import { UserContext, AuthenticationContext } from "../context/UserContext";
-import { useContext } from "react";
+import "../assets/styling/NavBar.css";
+import { AuthenticationContext, UserContext } from "../context/UserContext";
 
 export default function NavBar() {
   const { userInfo, setUserInfo } = useContext(UserContext);
@@ -22,7 +21,7 @@ export default function NavBar() {
   const handleLogout = () => {
     setAuthentication({ guest: true, isLoggedIn: false });
     setUserInfo({first_name: "GUEST" , last_name : ""});
-    navigate("/");
+    navigate("/login");
   };
 
   const handleLogin = (event) => {

@@ -104,7 +104,7 @@ export default function AltLogin() {
 
                     <input
                         className="input-box"
-                        type="text"
+                        type="password"
                         placeholder="Enter your password"
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
