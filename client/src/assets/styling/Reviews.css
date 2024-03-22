@@ -4,8 +4,11 @@
 .review-card{
     display: flex;
     flex-direction: row;
-    padding: 0;
-    margin: 0;
+    padding: 10px 0;
+    margin: 10px 0px;
+    background-color: #1E40AF;
+    color: aliceblue;
+    border-radius: 10px;
 }
 
 .books-container-review{

@@ -1,10 +1,8 @@
-import React from "react";
-import "../assets/styling/WriteReview.css";
-import { useState, useEffect, useContext } from "react";
-import { AuthenticationContext, UserContext } from "../context/UserContext.jsx";
-import { useNavigate, Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
 import { MdNoAccounts } from "react-icons/md";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import "../assets/styling/WriteReview.css";
+import { AuthenticationContext, UserContext } from "../context/UserContext.jsx";
 
 //component works to get the book data - but need to figure out how to make it accessible in the write review function
 
@@ -147,7 +145,7 @@ export default function WriteReview() {
             <div className="book-card">
               <img
                 className="book-cover"
-                src={`/bookCovers/${book.ISBN}.jpg`}
+                src={book.cover_image}
                 alt={book.title}
               />
 

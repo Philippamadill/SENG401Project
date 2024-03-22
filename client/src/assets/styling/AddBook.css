@@ -93,10 +93,10 @@ div#bookForm {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 10px 0px;
+  margin: 0px 0px;
 }
 
-#submitButton {
+#addBookSubmitButton {
   grid-area: submit;
   display: flex;
   align-items: center;
@@ -104,7 +104,7 @@ div#bookForm {
   margin: 0px;
 }
 
-#submitButton button {
+#addBookSubmitButton button {
   width: 185px;
   height: 60px;
   margin: 0px;
@@ -134,4 +134,8 @@ img {
   height: auto;
   max-width: 90%;
   max-height: 250px;
+}
+
+#bookForm > div {
+  margin: 5% 0;
 }

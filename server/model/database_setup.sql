@@ -16,7 +16,7 @@ CREATE TABLE Book (
     ISBN VARCHAR(13) PRIMARY KEY,
     book_name VARCHAR(100),
     book_description TEXT,
-    cover_image LONGBLOB,
+    cover_image VARCHAR(100),
     author_name VARCHAR(100),
     about_author TEXT
 );
