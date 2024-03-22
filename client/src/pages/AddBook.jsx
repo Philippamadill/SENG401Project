@@ -1,7 +1,7 @@
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import uploadImage from "../assets/images/up.png";
 import "../assets/styling/AddBook.css";
-import { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
 
 function AddBook() {
   const [files, setFiles] = useState();
@@ -53,20 +53,21 @@ function AddBook() {
       );
     }
     else if(resp.status == 200){
-      resp.json().then((res) => setPubURL(res.pubURL));
+      console.log(resp);
+      let e = resp.json()
+      .then((res) => setPubURL(res.pubURL));
     }
-
+    console.log(pubURL)
     const body = {
       ISBN: bookISBN,
       book_name: bookName,
       book_description: bookOverview,
-      cover_image: pubURL,
+      cover_image: "https://storage.googleapis.com/bookbook/" + file.name,
       author_name: authorsName,
       about_author: aboutAuthor,
     };
 
     const route = "http://localhost:7003/book/createBook";
-    console.log(route);
     const response = await fetch(route, {
       method: "POST",
       headers: {
