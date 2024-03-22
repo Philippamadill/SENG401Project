@@ -1,6 +1,44 @@
 const express = require("express");
+const Multer = require("multer");
+const format = require("format");
 const router = express.Router();
 const databaseConnection = require("../model/model");
+const { Storage } = require('@google-cloud/storage')
+
+const multer = Multer({
+  storage: Multer.memoryStorage(),
+  limits: {
+    fileSize: 25 * 1024 * 1024, // no larger than 5mb, you can change as needed.
+  },
+});
+
+// Initialize storage
+const storage = new Storage({
+  keyFilename: `./serviceAccountKey.json`,
+})
+
+const bucketName = 'bookbook'
+const bucket = storage.bucket(bucketName)
+
+// 0. Upload a image file to GCP
+router.post('/uploadToGCP', multer.single("imgFile"), (req, res) => {
+  try {
+    if(req.file){
+      const blob= bucket.file(req.file.originalname);
+      const blobStream = blob.createWriteStream();
+
+      blobStream.on('finish', () => {
+        const publicURL = `https://storage.googleapis.com/bookbook/${req.file.originalname}`
+        res.json({message: "Succesfuly uploaded image", pubURL: publicURL});
+      })
+
+      blobStream.end(req.file.buffer);
+    }
+  } catch (error) {
+    res.status(400).send("NOT OK");
+  }
+
+})
 
 // 1. Create a Book
 router.post("/createBook", (req, res) => {
@@ -19,6 +57,7 @@ router.post("/createBook", (req, res) => {
       .status(400)
       .send("ISBN, book_name, and author_name are required fields");
   }
+
 
   // Insert the new book into the database
   databaseConnection.query(

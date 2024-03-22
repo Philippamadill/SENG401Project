@@ -68,7 +68,7 @@ const Search = () => {
             <p className="author">By {item.author_name}</p>
             <img
               className="cover"
-              src={`data:image/jpeg;base64,${item.cover_image}`}
+              src={item.cover_image}
               alt={item.book_name}
             />
           </div>

@@ -15,7 +15,9 @@ function AddBook() {
   const [bookOverview, setBookOverview] = useState("");
   const [authorsName, setAuthorsName] = useState("");
   const [aboutAuthor, setAboutAuthor] = useState("");
+  const [pubURL, setPubURL] = useState("");
   const [responseText, setResponseText] = useState("");
+
   async function HandleAddBook(e) {
     e.preventDefault();
 
@@ -33,18 +35,39 @@ function AddBook() {
 
     var data = {};
     var error = null;
+    
+    let file= files[0];
+    let blob = file.slice(0, file.size)
+    const newFile = new File([blob], file.name);
 
+    let formData = new FormData();
+    formData.append("imgFile", newFile, newFile.name);
+    const resp = await fetch('http://localhost:7003/book/uploadToGCP', {
+      method: "POST",
+      body: formData,
+    });
+
+    if(resp.status == 400){
+      setResponseText(
+        "There was an error with uploading the image. Please try again"
+      );
+    }
+    else if(resp.status == 200){
+      console.log(resp);
+      let e = resp.json()
+      .then((res) => setPubURL(res.pubURL));
+    }
+    console.log(pubURL)
     const body = {
       ISBN: bookISBN,
       book_name: bookName,
       book_description: bookOverview,
-      cover_image: coverImage,
+      cover_image: "https://storage.googleapis.com/bookbook/" + file.name,
       author_name: authorsName,
       about_author: aboutAuthor,
     };
 
     const route = "http://localhost:7003/book/createBook";
-    console.log(route);
     const response = await fetch(route, {
       method: "POST",
       headers: {
