@@ -2,61 +2,66 @@ import React, { useState, useEffect } from "react";
 //import Math from 'math';
 import axios from 'axios'; // Assuming you're using Axios for HTTP requests
 import "../assets/styling/TopPick.css";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 var rand = [];
+var counter = 0;
 export default function TopPicks() {
   const [books, setBooks] = useState([]);
-  const [randBook, setRandBook] = useState([]);
+  const randBook = [];
+  const navigate = useNavigate();
+  getBooksArray();
   getBook();
 
-
-  /*async function getrandISBN(){
-    try {
-      const response = "http://localhost:7003/book/getAllBooks"; 
-      count = response.data.count;
-    } catch (error) {
-      console.error("Error fetching count:", error);
-    }
-    
-    while(numArray.length <= 5){
-    randomNumber = Math.floor(Math.random() * count) + 1; 
-    if (!(numArray.includes(randomNumber))){
-      numArray.push(randomNumber);
-    }
+  
+async function getBooksArray(){
+  const route = "http://localhost:7003/book/getAllBooks";
+  //console.log(route);
+  //console.log(rand);
+  //console.log(route);
+  const response = await fetch(route, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+});
+console.log(response);
+  //console.log(response);
+  const jsonResponse = await response.json();
+  if (books.length === 0){
+    setBooks(jsonResponse);
   }
-  return randomNumber;
-  }*/
+  console.log(books.length);
+}
+
 
   async function getBook() {
-    const route = "http://localhost:7003/book/getAllBooks";
-    console.log(route.data);
-    let count = route.data.count;
-    while(rand.length <= 5){
-      let randomNumber = Math.floor(Math.random() * count) + 1; 
+    
+    if(books.length>0){
+    const count = books.length;
+    console.log(books.length);
+    while(rand.length < 5){
+      let randomNumber = Math.floor(Math.random() * count); 
       if (!(rand.includes(randomNumber))){
         rand.push(randomNumber);
       }
     }
-    console.log(route);
-    const response = await fetch(route, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-  });
-    console.log(response);
-    const jsonResponse = await response.json();
-    setBooks(jsonResponse);
-    var randBooks;
-    randBooks.push(books[rand[0]]);
-    randBooks.push(books[rand[1]]);
-    randBooks.push(books[rand[2]]);
-    randBooks.push(books[rand[3]]);
-    randBooks.push(books[rand[4]]);
-    console.log(jsonResponse);
-    setRandBook(randBooks);
+    //console.log(books.length);
+    if (randBook.length <5){
+    //console.log(jsonResponse);
+    randBook.push(books[rand[0]]);
+    randBook.push(books[rand[1]]);  
+    randBook.push(books[rand[2]]);
+    randBook.push(books[rand[3]]);
+    randBook.push(books[rand[4]]);
+    }
+    console.log(randBook);
   }
+   // counter++;
+
+  } 
+
+  getBook();
 
 
   return (
@@ -64,28 +69,24 @@ export default function TopPicks() {
       <div className="top-bar">
         <h2 className="top-bar-title">Top Picks</h2>
       </div>
+      
       <div className="books-container">
-        {randBook.map((book) => (
-          <div key={book.ISBN} className="book-card">
-            <img
-              className="book-cover"
-              src={`/bookCovers/${book.ISBN}.jpg`}
-              alt={book.title}
-            />
-            <div className="book-info">
-              <div className="title">
-                <h1>{book.title}</h1>
-              </div>
-              <div className="author">{book.author}</div>
-              <button
-            className="view"
+        {randBook.map((item) => (
+          <div
+            className="book"
+            key={item.ISBN}
+            value={item.ISBN}
             onClick={(e) => {
-              <Link to="/viewbook/${book.ISBN}">view book</Link>
+              navigate(`/viewBook/` + item.ISBN);
             }}
           >
-            View book details
-          </button>
-            </div>
+            <h2 className="title">Title: {item.book_name}</h2>
+            <p className="author">By: {item.author_name}</p>
+            <img
+              className="cover"
+              src={`data:image/jpeg;base64,${item.cover_image}`}
+              alt={item.book_name}
+            />
           </div>
         ))}
       </div>
