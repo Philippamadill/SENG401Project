@@ -63,7 +63,7 @@ export default function TopPicks() {
           >
             <img
               className="book-cover"
-              src={`/bookCovers/${book.ISBN}.jpg`}
+              src={book.cover_image}
               alt={book.book_name}
             />
             <div className="review-info">

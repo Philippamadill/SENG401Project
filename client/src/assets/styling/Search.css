@@ -4,6 +4,7 @@
   margin: 10px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+  grid-template-columns: 50% 50%;
   display: grid;
   grid-template-areas:
     "image title"
@@ -37,6 +38,7 @@ input#searchBar {
 
 .cover {
   grid-area: image;
+  max-height: 150px;
 }
 
 .author {
