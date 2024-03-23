@@ -68,7 +68,7 @@ export default function AltRegister(){
     return(
         <div className="outer-container">
         
-        <div className="inner-container">
+        <div className="inner-container-reg">
             <div className="login-form">
                 <img className="login-logoimg" src={Logo} alt="" />
                 <h1 className="welcome-login">Sign Up</h1>
