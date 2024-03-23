@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import uploadImage from "../assets/images/up.png";
 import "../assets/styling/AddBook.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function AddBook() {
   const [files, setFiles] = useState();
@@ -29,7 +32,8 @@ function AddBook() {
       authorsName === "" ||
       aboutAuthor === ""
     ) {
-      setResponseText("All Fields Are Required");
+      toast.error("All Fields Are Required");
+      // setResponseText("All Fields Are Required");
       return;
     }
 
@@ -77,12 +81,14 @@ function AddBook() {
     });
     console.log(response);
     if (response.status === 201) {
-      setResponseText("Book Created Successfully");
+      toast.success("Book Created Successfully");
+      // setResponseText("Book Created Successfully");
       navigate(`/viewBook/${bookISBN}`);
     } else {
-      setResponseText(
-        "There was an error with creating the book. Please try again"
-      );
+      toast.error("There was an error with creating the book. Please try again");
+      // setResponseText(
+      //   "There was an error with creating the book. Please try again"
+      // );
     }
   }
 
@@ -208,6 +214,7 @@ function AddBook() {
             <button className="submit" name="addButton" onClick={HandleAddBook}>
               Add Book
             </button>
+            <ToastContainer />
           </div>
         </div>
       </form>
