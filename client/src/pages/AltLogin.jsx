@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { IoMdKey } from "react-icons/io";
+import { IoEye } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -81,6 +82,18 @@ export default function AltLogin() {
     navigate("/search");
   };
 
+  const handleShowPass = () =>{
+    const pass = document.getElementById("pass-input")
+    const passicon = document.getElementById("pass-toggle-icon");
+
+    if(pass.type == "password"){
+      pass.type = "text";
+    }
+    else{
+      pass.type = "password";
+    }
+  }
+
   return (
     <div className="outer-container">
         
@@ -91,25 +104,36 @@ export default function AltLogin() {
                 <h2 className="mid-text">Login or continue as guest to get access</h2>
 
                 <h2 className="email-pass">Username</h2>
-                <div>
+                <form>
                     <input
                         className="input-box"
+                        
                         type="text"
                         placeholder="Enter your username"
                         value={username}
                         onChange={(event) => setUsername(event.target.value)}
+                        
                     />
 
                     <h2 className="email-pass">Password</h2>
+                  <div className="pass-box">
+                  
 
                     <input
-                        className="input-box"
-                        type="password"
-                        placeholder="Enter your password"
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
-                    />
-                </div>
+                            className="passinput-box"
+                            type="password"
+                            id = "pass-input"
+                            placeholder="Enter your password"
+                            value={password}
+                            onChange={(event) => setPassword(event.target.value)}
+                        />
+                        <div id="pass-toggle-icon"  onClick={handleShowPass}>
+                          <IoEye className="password-eye"/>
+                        </div>
+                        
+                  </div>
+                  
+                </form>
 
             <button className="loginsubmit" onClick={HandleLogin}>
              Log In
