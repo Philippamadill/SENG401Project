@@ -19,6 +19,19 @@
 
 }
 
+.inner-container-reg{
+    position: absolute;
+    width: 75%; /* Set the width to 75% of the viewport width */
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    padding: 0; /* Padding around the content inside the box */
+    box-sizing: border-box; /* Include padding and border in the box's total width */
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+}
+
 .login-form{
 
     padding: 5%;
