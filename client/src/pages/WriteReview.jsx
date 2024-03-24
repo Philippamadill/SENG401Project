@@ -58,12 +58,34 @@ export default function WriteReview() {
     AuthenticationContext
   );
   console.log(userInfo);
-
+  console.log("PARAMS")
+  console.log(params)
   const book = {
     ISBN: params.ISBN,
     title: params.title,
     author: params.author,
   };
+  const [books, setBooks] = useState();
+  
+
+  async function getBook() {
+    const route =
+      "http://localhost:7003/book/getBookByISBN?ISBN=" + params.ISBN;
+    console.log(route);
+    const response = await fetch(route, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(response);
+    const jsonResponse = await response.json();
+    setBooks(jsonResponse);
+    console.log(jsonResponse);
+  }
+  useEffect(() => {
+    getBook();
+  }, []);
 
   //works - fetches username from context
   const username = userInfo.username;
@@ -126,6 +148,7 @@ export default function WriteReview() {
       navigate("/viewBook/" + book.ISBN);
     }
   }
+  
 
   return (
     <div className="big-container">
@@ -143,11 +166,12 @@ export default function WriteReview() {
 
           <div className="books-container">
             <div className="book-card">
-              <img
+            {books != null &&<img src={books.cover_image} alt={books.book_name} />}
+              {/* <img
                 className="book-cover"
-                src={book.cover_image}
+                src={books.cover_image}
                 alt={book.title}
-              />
+              /> */}
 
               <div className="book-info">
                 <div className="title">
