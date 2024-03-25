@@ -129,7 +129,7 @@ div#bookForm {
   color: red;
 }
 
-#uploaded-img {
+.uploaded-img {
   width: auto;
   height: auto;
   max-width: 90%;
