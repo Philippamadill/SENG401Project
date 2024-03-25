@@ -85,7 +85,7 @@ console.log(response);
             <p className="author">By: {item.author_name}</p>
             <img
               className="cover"
-              src={`${item.cover_image}`}
+              src={`data:image/jpeg;base64,${item.cover_image}`}
               alt={item.book_name}
             />
           </div>
