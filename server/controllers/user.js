@@ -1,4 +1,5 @@
 const express = require('express');
+const bcrypt = require('bcrypt');
 const router = express.Router();
 const databaseConnection = require('../model/model');
 
@@ -12,17 +13,21 @@ router.get('/getAccount', (req, res) => {
   }
 
   // Check credentials against the database
-  databaseConnection.query('SELECT * FROM User WHERE username = ? AND password = ?', [username, password], (err, results) => {
+  databaseConnection.query('SELECT * FROM User WHERE username = ?', [username], (err, results) => {
     if (err) {
       console.error('Error executing query:', err);
       return res.status(500).send('Internal server error');
     }
     
+    
     // Check if user with provided username and password exists
     if (results.length === 0) {
-      return res.status(401).send('Unauthorized');
+      return res.status(401).send('Incorrect username');
     }
-    
+    const isValid= bcrypt.compareSync(password, results[0].password);
+    if(!isValid){
+      return res.status(401).send('Incorrect password');
+    }
     // If user exists and credentials are correct, you can send some data back
     res.json({ message: 'User authenticated successfully', user: results[0] });
   });
@@ -37,6 +42,7 @@ router.post('/createAccount', (req, res) => {
     return res.status(400).send('All fields are required');
   }
 
+  const passHash = bcrypt.hashSync(password, 10);
   // Check if the username already exists
   databaseConnection.query('SELECT * FROM User WHERE username = ?', [username], (err, results) => {
     if (err) {
@@ -50,7 +56,7 @@ router.post('/createAccount', (req, res) => {
     }
 
     // Insert the new user into the database
-    databaseConnection.query('INSERT INTO User (username, first_name, last_name, email, password) VALUES (?, ?, ?, ?, ?)', [username, firstName, lastName, email, password], (err, result) => {
+    databaseConnection.query('INSERT INTO User (username, first_name, last_name, email, password) VALUES (?, ?, ?, ?, ?)', [username, firstName, lastName, email, passHash], (err, result) => {
       if (err) {
         console.error('Error executing query:', err);
         return res.status(500).send('Internal server error');

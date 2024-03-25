@@ -37,9 +37,7 @@ input {
   background-color: #f5f3f3;
   border-radius: 5px;
 }
-div {
-  margin: 5% 0;
-}
+
 
 div#bookForm {
   margin: 0;
@@ -62,26 +60,32 @@ div#bookForm {
 
 #uploadImage {
   grid-area: img;
+  margin: 5% 0;
 }
 
 #bookName {
   grid-area: bookName;
+  margin: 5% 0;
 }
 
 #bookISBN {
   grid-area: isbn;
+  margin: 5% 0;
 }
 
 #bookOverview {
   grid-area: overview;
+  margin: 5% 0;
 }
 
 #authorName {
   grid-area: authorName;
+  margin: 5% 0;
 }
 
 #aboutAuthor {
   grid-area: about;
+  margin: 5% 0;
 }
 
 #resp {
@@ -89,10 +93,10 @@ div#bookForm {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 10px 0px;
+  margin: 0px 0px;
 }
 
-#submitButton {
+#addBookSubmitButton {
   grid-area: submit;
   display: flex;
   align-items: center;
@@ -100,7 +104,7 @@ div#bookForm {
   margin: 0px;
 }
 
-#submitButton button {
+#addBookSubmitButton button {
   width: 185px;
   height: 60px;
   margin: 0px;
@@ -130,4 +134,8 @@ img {
   height: auto;
   max-width: 90%;
   max-height: 250px;
+}
+
+#bookForm > div {
+  margin: 5% 0;
 }

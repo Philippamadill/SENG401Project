@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 //import axios from 'axios'; // Assuming you're using Axios for HTTP requests
-import '../assets/styling/TopPick.css';
 import '../assets/styling/Reviews.css';
 
 import { UserContext , AuthenticationContext} from '../context/UserContext';
@@ -129,26 +128,37 @@ export default function Reviews() {
     }
     
 
-
     return (
         <div>
             <div className='top-bar'>
-            <h2 className='top-bar-title'>Reviews</h2>
-            <button className = "add-book">ADD NEW REVIEW </button>
+                <h2 className='top-bar-title'>Reviews</h2>
             </div>
-            <div className="books-container">
+            <div className="books-container-review">
                 {books.map(book => (
-                    
                     <div key={book.ISBN} className="review-card">
-                        <img className="review-cover" src={`data:image/jpeg;base64,${book.cover_image}`} alt={book.title} />
+                        <img
+                        className="book-cover"
+                        src={`/bookCovers/${book.ISBN}.jpg`}
+                        alt={book.book_name}
+                        />
                         <div className="review-info">
                             <div className="title"><h1>{book.book_name}</h1></div>
                             <div className="author">{book.author_name}</div>
-                            <button className = "remove-book">Remove Book</button>
+                            <div className="review-review">
+                                {/* Check if a review exists for the current book */}
+                                {reviews.find(review => review.ISBN === book.ISBN) ? (
+                                    // Display the review if found
+                                    <p>{reviews.find(review => review.ISBN === book.ISBN).description}</p>
+                                ) : (
+                                    // Display a message if no review is found
+                                    <p>No review available</p>
+                                )}
+                            </div>
                         </div>
                     </div>
                 ))}
             </div>
         </div>
     );
+    
 }

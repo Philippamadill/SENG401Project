@@ -1,6 +1,25 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+
+
+.review-card{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0;
+    margin: 10px 0px;
+    background-color: #1E40AF;
+    color: aliceblue;
+    border-radius: 10px;
+}
+
+.books-container-review{
+    display: flex;
+    flex-direction: column;
+}
+
+.review-info{
+    display: block;
+    margin-top: 0;
+    margin-left: 10px;
     
 }
+

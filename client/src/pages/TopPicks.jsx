@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 var rand = [];
 var counter = 0;
+
 export default function TopPicks() {
   const [books, setBooks] = useState([]);
   const randBook = [];

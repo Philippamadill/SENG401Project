@@ -1,23 +1,10 @@
-import React from "react";
-import "../assets/styling/ViewBook.css";
-import { useState, useEffect, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { IoMdKey } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import "../assets/styling/ViewBook.css";
 import { AuthenticationContext, UserContext } from "../context/UserContext.jsx";
-import { useParams } from "react-router-dom";
-
-const book = {
-  ISBN: 12,
-  title: "Harry Potter and the Philosopher's Stone",
-  author: "J.K. Rowling",
-  genre: "Fantasy",
-  description:
-    "The first book in the Harry Potter series, this book follows the young wizard Harry Potter as he discovers his magical heritage and begins his journey at Hogwarts School of Witchcraft and Wizardry.",
-  rating: "4.5",
-};
-
 export default function ViewBook(props) {
   // const[hover, setHover] = useState(null);
   const params = useParams();
@@ -106,7 +93,7 @@ export default function ViewBook(props) {
     <div className="ViewBook">
       <div className="wrapper-view">
         <div className="book-cover_">
-          <img src={`/bookCovers/${book.ISBN}.jpg`} alt={book.title} />
+        {books != null &&<img src={books.cover_image} alt={books.book_name} />}
         </div>
         <div className="book-info_">
           {books != null && <h3 className="book-title">{books.book_name}</h3>}

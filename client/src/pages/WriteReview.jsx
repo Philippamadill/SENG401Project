@@ -1,10 +1,8 @@
-import React from "react";
-import "../assets/styling/WriteReview.css";
-import { useState, useEffect, useContext } from "react";
-import { AuthenticationContext, UserContext } from "../context/UserContext.jsx";
-import { useNavigate, Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
 import { MdNoAccounts } from "react-icons/md";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import "../assets/styling/WriteReview.css";
+import { AuthenticationContext, UserContext } from "../context/UserContext.jsx";
 
 //component works to get the book data - but need to figure out how to make it accessible in the write review function
 
@@ -60,12 +58,34 @@ export default function WriteReview() {
     AuthenticationContext
   );
   console.log(userInfo);
-
+  console.log("PARAMS")
+  console.log(params)
   const book = {
     ISBN: params.ISBN,
     title: params.title,
     author: params.author,
   };
+  const [books, setBooks] = useState();
+  
+
+  async function getBook() {
+    const route =
+      "http://localhost:7003/book/getBookByISBN?ISBN=" + params.ISBN;
+    console.log(route);
+    const response = await fetch(route, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(response);
+    const jsonResponse = await response.json();
+    setBooks(jsonResponse);
+    console.log(jsonResponse);
+  }
+  useEffect(() => {
+    getBook();
+  }, []);
 
   //works - fetches username from context
   const username = userInfo.username;
@@ -128,6 +148,7 @@ export default function WriteReview() {
       navigate("/viewBook/" + book.ISBN);
     }
   }
+  
 
   return (
     <div className="big-container">
@@ -145,11 +166,12 @@ export default function WriteReview() {
 
           <div className="books-container">
             <div className="book-card">
-              <img
+            {books != null &&<img src={books.cover_image} alt={books.book_name} />}
+              {/* <img
                 className="book-cover"
-                src={`/bookCovers/${book.ISBN}.jpg`}
+                src={books.cover_image}
                 alt={book.title}
-              />
+              /> */}
 
               <div className="book-info">
                 <div className="title">

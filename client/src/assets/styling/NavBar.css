@@ -1,7 +1,7 @@
 
 /* Sidebar Styles */
 .sidebar {
-  position: relative;
+  position: fixed;
     width: 25%;
     height: 100vh;
     color: black;
@@ -43,6 +43,7 @@
     text-decoration: none;
     padding-left: 5%;
     font-weight: 500;
+    color: black;
   }
 
   .sidebar a:visited{
@@ -90,5 +91,15 @@
   .sidebar-logout:hover{
     background-color: lightblue;
   }
+
+  .sidebar-login{
+    background-color: rgba(37, 99, 235, 1);
+    border: 0.5pt solid black;
+    border-radius: 5px;
+    width: 10vh;
+    height: 4vh;
+    margin-top: 4%;
+    color: white;
+}
 
 

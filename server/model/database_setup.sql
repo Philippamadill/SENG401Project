@@ -16,7 +16,7 @@ CREATE TABLE Book (
     ISBN VARCHAR(13) PRIMARY KEY,
     book_name VARCHAR(100),
     book_description TEXT,
-    cover_image LONGBLOB,
+    cover_image VARCHAR(100),
     author_name VARCHAR(100),
     about_author TEXT
 );
@@ -62,6 +62,6 @@ CREATE TABLE AlreadyRead (
 -- Insert dummy data into User table
 INSERT INTO User (username, first_name, last_name, email, password)
 VALUES 
-('user1', 'John', 'Doe', 'john.doe@example.com', 'password123'),
-('user2', 'Jane', 'Smith', 'jane.smith@example.com', 'securepass'),
-('user3', 'Alice', 'Johnson', 'alice.johnson@example.com', 'abc123');
+('user1', 'John', 'Doe', 'john.doe@example.com', '$2b$10$wSm.L6dojT5Q.L37pWc2uO9BhrZ5dU7xarkQpl7375T891PvdFL5K'),    #password : password123
+('user2', 'Jane', 'Smith', 'jane.smith@example.com', '$2b$10$VIuTqn6qeeOT/Utswjnf.OY0xGKHX4Wfx1w5fQ2XeyDwkJ4J.R4my'), #password : securepass
+('user3', 'Alice', 'Johnson', 'alice.johnson@example.com', '$2b$10$x0jXCMdRdIv5k35/XznaWOodUtDYs16iH.VtKdO/pUDL3Dya2aNMW'); #password : abc123

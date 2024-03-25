@@ -119,3 +119,8 @@
 .review-Desc {
   grid-area: desc;
 }
+
+
+.book-reviews > div, .book-reviews > div > div {
+  margin: 5% 0;
+}
