@@ -27,6 +27,9 @@
 
 .book-buttons {
   grid-area: buttons;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .book-cover_ {
@@ -38,9 +41,9 @@
   align-items: center;
 }
 
-.book-cover img {
+.book-cover_ > #book_cover_photo {
   width: auto;
-  height: auto;
+  height: 70vh;
 }
 
 .book-reviews {
@@ -82,10 +85,8 @@
   border: none;
   border-radius: 10px;
   font-size: 13px;
-  margin-left: auto;
-  margin-right: 30px;
-  margin-top: 70px;
   font-weight: bold;
+  margin: 0 5px;
 }
 
 .styled-heading {

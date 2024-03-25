@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import uploadImage from "../assets/images/up.png";
-import "../assets/styling/AddBook.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import uploadImage from "../assets/images/up.png";
+import "../assets/styling/AddBook.css";
 
 
 function AddBook() {
@@ -127,7 +127,7 @@ function AddBook() {
               {!hide && <img src={uploadImage} alt="cloud upload icon"></img>}
               {previews &&
                 previews.map((pic) => {
-                  return <img src={pic} alt="user uploaded img" />;
+                  return <img src={pic} alt="user uploaded img" id='uploaded-img'/>;
                 })}
             </div>
             <div className="input-oneline">

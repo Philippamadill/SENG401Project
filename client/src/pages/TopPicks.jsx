@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 //import Math from 'math';
-import axios from 'axios'; // Assuming you're using Axios for HTTP requests
-import "../assets/styling/TopPick.css";
+//import axios from 'axios'; // Assuming you're using Axios for HTTP requests
 import { useNavigate } from "react-router-dom";
+import "../assets/styling/TopPick.css";
 
 var rand = [];
 var counter = 0;
@@ -85,7 +85,7 @@ console.log(response);
             <p className="author">By: {item.author_name}</p>
             <img
               className="cover"
-              src={`data:image/jpeg;base64,${item.cover_image}`}
+              src={`${item.cover_image}`}
               alt={item.book_name}
             />
           </div>

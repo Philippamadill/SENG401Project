@@ -93,7 +93,7 @@ export default function ViewBook(props) {
     <div className="ViewBook">
       <div className="wrapper-view">
         <div className="book-cover_">
-        {books != null &&<img src={books.cover_image} alt={books.book_name} />}
+        {books != null &&<img src={books.cover_image} alt={books.book_name} id="book_cover_photo"/>}
         </div>
         <div className="book-info_">
           {books != null && <h3 className="book-title">{books.book_name}</h3>}
