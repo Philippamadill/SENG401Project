@@ -81,7 +81,7 @@ console.log(response);
               navigate(`/viewBook/` + item.ISBN);
             }}
           >
-            <h2 className="title">Title: {item.book_name}</h2>
+            <h2 className="title">{item.book_name}</h2>
             <p className="author">By: {item.author_name}</p>
             <img
               className="cover"
