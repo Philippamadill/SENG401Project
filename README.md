@@ -29,4 +29,4 @@
 
 1. After the web server is running, run the SQL queries\
    on your local instance of the database that you set up\
-   (based on above .env details)\
+   (based on above .env details)
