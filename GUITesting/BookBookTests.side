@@ -1,0 +1,1726 @@
+{
+  "id": "f35697d2-5ba3-42bd-9728-e13c4bae0595",
+  "version": "2.0",
+  "name": "BookBookTests",
+  "url": "http://localhost:3000",
+  "tests": [{
+    "id": "3aeb3915-8f1f-44a5-b78c-645591f6ea4f",
+    "name": "TC#14-TestSearch_BookExists",
+    "commands": [{
+      "id": "e95108c7-527f-44ea-a28a-3b03a2bdc0b7",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8f0a9bd9-a676-47a8-a55f-c8bc1b016f4c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Search",
+      "targets": [
+        ["linkText=Search", "linkText"],
+        ["css=.sidebar-links:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Search')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div[2]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/search')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e8bc10a7-aff8-4c3f-a1e0-286b94eea0f6",
+      "comment": "",
+      "command": "click",
+      "target": "id=searchBar",
+      "targets": [
+        ["id=searchBar", "id"],
+        ["css=#searchBar", "css:finder"],
+        ["xpath=//input[@id='searchBar']", "xpath:attributes"],
+        ["xpath=//form[@id='searchContainer']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d2c1250f-b3a7-428d-bd10-4fa370cd349d",
+      "comment": "",
+      "command": "type",
+      "target": "id=searchBar",
+      "targets": [
+        ["id=searchBar", "id"],
+        ["css=#searchBar", "css:finder"],
+        ["xpath=//input[@id='searchBar']", "xpath:attributes"],
+        ["xpath=//form[@id='searchContainer']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "The Hunger Games"
+    }, {
+      "id": "8f8d84d7-a122-4dc8-8929-89eef5ef5de2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.title",
+      "targets": [
+        ["css=.title", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//div[2]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'The Hunger Games')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b22c2603-9d41-4fae-9bcb-2e838e809f00",
+      "comment": "",
+      "command": "click",
+      "target": "css=.book-cover_ > img",
+      "targets": [
+        ["css=.book-cover_ > img", "css:finder"],
+        ["xpath=//img[@alt='The Hunger Games']", "xpath:img"],
+        ["xpath=//div[@id='root']/div/main/div/div/div/img", "xpath:idRelative"],
+        ["xpath=//div/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d6bbdced-ae3d-41bf-8b87-8615845323a6",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.book-title",
+      "targets": [
+        ["css=.book-title", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div/div[2]/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'The Hunger Games')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf5d22f7-4298-4dee-b3b0-6181a51969b4",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.book-title",
+      "targets": [
+        ["css=.book-title", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div/div[2]/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'The Hunger Games')]", "xpath:innerText"]
+      ],
+      "value": "The Hunger Games"
+    }]
+  }, {
+    "id": "75a9de3f-8567-4b0a-b7c4-2f5a090842db",
+    "name": "TC#8-TestLogin-ExistingUserValidUsernameAndPassword",
+    "commands": [{
+      "id": "06ed4344-78de-475b-8101-24c029666c58",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3e4737d0-7a95-4c77-b627-6bc99d3713cf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sidebar-login",
+      "targets": [
+        ["css=.sidebar-login", "css:finder"],
+        ["xpath=//div[@id='root']/div/nav/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b185eb4f-dd11-4954-9bfc-aa0a92bf129c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-box",
+      "targets": [
+        ["css=.input-box", "css:finder"],
+        ["xpath=//input[@value='']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6386c203-f940-4566-a493-e0a7280a450c",
+      "comment": "",
+      "command": "type",
+      "target": "css=.input-box",
+      "targets": [
+        ["css=.input-box", "css:finder"],
+        ["xpath=//input[@value='user1']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "user1"
+    }, {
+      "id": "8589ce9d-35ad-43fe-8606-2f5b45c5558d",
+      "comment": "",
+      "command": "click",
+      "target": "id=pass-input",
+      "targets": [
+        ["id=pass-input", "id"],
+        ["css=#pass-input", "css:finder"],
+        ["xpath=//input[@id='pass-input']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5c2198c-6372-4926-a760-480430041697",
+      "comment": "",
+      "command": "type",
+      "target": "id=pass-input",
+      "targets": [
+        ["id=pass-input", "id"],
+        ["css=#pass-input", "css:finder"],
+        ["xpath=//input[@id='pass-input']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "password123"
+    }, {
+      "id": "4e1870d0-dcf5-4008-b7bf-6f49aac9ec52",
+      "comment": "",
+      "command": "click",
+      "target": "css=path",
+      "targets": [
+        ["css=path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "2253510b-defc-4e65-8f17-b71ebb36ce38",
+      "comment": "",
+      "command": "click",
+      "target": "css=.loginsubmit:nth-child(6)",
+      "targets": [
+        ["css=.loginsubmit:nth-child(6)", "css:finder"],
+        ["xpath=//div[@id='root']/div/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3274eb6c-7a16-448d-9b69-937a19dceee2",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.profile-content > h2",
+      "targets": [
+        ["css=.profile-content > h2", "css:finder"],
+        ["xpath=//div[@id='root']/div/nav/div[3]/div/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'John Doe')]", "xpath:innerText"]
+      ],
+      "value": "John Doe"
+    }]
+  }, {
+    "id": "5d9731e0-2703-4e7d-8847-426d98499199",
+    "name": "TC#9-TestLogin-ExistingUserValidUsernameWrongPassword",
+    "commands": [{
+      "id": "e62c93da-ecbd-44b5-8a54-ceee7f0b5263",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8800d290-03db-4de4-b624-3ffa59494ccd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sidebar-login",
+      "targets": [
+        ["css=.sidebar-login", "css:finder"],
+        ["xpath=//div[@id='root']/div/nav/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dc387df5-5a36-477c-abf6-146de373339f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-box",
+      "targets": [
+        ["css=.input-box", "css:finder"],
+        ["xpath=//input[@value='']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c5123744-de8f-4147-9367-b3a58c317d81",
+      "comment": "",
+      "command": "type",
+      "target": "css=.input-box",
+      "targets": [
+        ["css=.input-box", "css:finder"],
+        ["xpath=//input[@value='user1']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "user1"
+    }, {
+      "id": "4aec7518-24e6-4cdb-a17e-09edd2dd4eeb",
+      "comment": "",
+      "command": "click",
+      "target": "id=pass-input",
+      "targets": [
+        ["id=pass-input", "id"],
+        ["css=#pass-input", "css:finder"],
+        ["xpath=//input[@id='pass-input']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "58082021-8e53-46ab-8232-6249aa94c24f",
+      "comment": "",
+      "command": "type",
+      "target": "id=pass-input",
+      "targets": [
+        ["id=pass-input", "id"],
+        ["css=#pass-input", "css:finder"],
+        ["xpath=//input[@id='pass-input']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "wrong"
+    }, {
+      "id": "f89ebea6-3b68-4f54-8f46-91d10de1a995",
+      "comment": "",
+      "command": "click",
+      "target": "css=path",
+      "targets": [
+        ["css=path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b396a14-4169-467b-9a65-2e52781d4dfb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.loginsubmit:nth-child(6)",
+      "targets": [
+        ["css=.loginsubmit:nth-child(6)", "css:finder"],
+        ["xpath=//div[@id='root']/div/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "24fdfa63-39fd-457b-9552-5455578faa3f",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.Toastify__toast-body > div:nth-child(2)",
+      "targets": [
+        ["css=.Toastify__toast-body > div:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='1']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e75ceedd-f103-4f96-a7cd-a13bce365c1e",
+    "name": "TC#10-TestLogin-ExistingUserInvalidUsernameAndPassword",
+    "commands": [{
+      "id": "44ec6817-41c6-4e9e-a552-ca838438821e",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f3265137-70ea-4bf4-a899-1f145bafd0fb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sidebar-login",
+      "targets": [
+        ["css=.sidebar-login", "css:finder"],
+        ["xpath=//div[@id='root']/div/nav/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "45807e73-3cad-4f26-b324-1fb0d228dbd2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-box",
+      "targets": [
+        ["css=.input-box", "css:finder"],
+        ["xpath=//input[@value='']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "25fc6834-b105-4918-8470-618ba322fac2",
+      "comment": "",
+      "command": "type",
+      "target": "css=.input-box",
+      "targets": [
+        ["css=.input-box", "css:finder"],
+        ["xpath=//input[@value='invaliduser']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "invaliduser"
+    }, {
+      "id": "2b873cf4-9aa5-47f9-a730-b46c272f263e",
+      "comment": "",
+      "command": "click",
+      "target": "id=pass-input",
+      "targets": [
+        ["id=pass-input", "id"],
+        ["css=#pass-input", "css:finder"],
+        ["xpath=//input[@id='pass-input']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "572a7bc1-7fc1-48ad-ab23-b5efa74fa4c7",
+      "comment": "",
+      "command": "type",
+      "target": "id=pass-input",
+      "targets": [
+        ["id=pass-input", "id"],
+        ["css=#pass-input", "css:finder"],
+        ["xpath=//input[@id='pass-input']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "wrongpass"
+    }, {
+      "id": "3ba64fc6-9195-4211-99d2-5f74f38e6f20",
+      "comment": "",
+      "command": "click",
+      "target": "css=.password-eye",
+      "targets": [
+        ["css=.password-eye", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "131869f3-8d81-436d-b6c3-d8d6ba55225b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.loginsubmit:nth-child(6)",
+      "targets": [
+        ["css=.loginsubmit:nth-child(6)", "css:finder"],
+        ["xpath=//div[@id='root']/div/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6d084542-acc7-44a2-ac75-edda202b5916",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.Toastify__toast-body > div:nth-child(2)",
+      "targets": [
+        ["css=.Toastify__toast-body > div:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='1']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "557df20d-43ea-459a-8f11-7ae66f851f89",
+    "name": "TC#11-TestViewAsGuest-ContinueAsGuest",
+    "commands": [{
+      "id": "a394a5bf-8937-4461-b5fa-438272aec742",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b2d7421a-5e38-46f6-a3cb-5ec06a8cc784",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sidebar-login",
+      "targets": [
+        ["css=.sidebar-login", "css:finder"],
+        ["xpath=//div[@id='root']/div/nav/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f317003-1794-4385-920a-028a67dffae6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.loginsubmit:nth-child(9)",
+      "targets": [
+        ["css=.loginsubmit:nth-child(9)", "css:finder"],
+        ["xpath=//div[@id='root']/div/div/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Continue as Guest')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0d0962f5-26ef-4c8b-925c-6d6c58deb096",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.profile-content > h2",
+      "targets": [
+        ["css=.profile-content > h2", "css:finder"],
+        ["xpath=//div[@id='root']/div/nav/div[3]/div/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'GUEST')]", "xpath:innerText"]
+      ],
+      "value": "GUEST"
+    }]
+  }, {
+    "id": "88a88855-aad6-4874-af3d-6b1fd21ff77f",
+    "name": "TC#12-TestRegister-NewUserValidDetails",
+    "commands": [{
+      "id": "2dbcc1c2-98aa-41d4-b901-4ef7edd9a71e",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "236497ba-0014-4122-b7da-535a2ab531cf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sidebar-login",
+      "targets": [
+        ["css=.sidebar-login", "css:finder"],
+        ["xpath=//div[@id='root']/div/nav/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d91bda8a-0dec-409a-bfc2-d80d92df52cb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Register Here",
+      "targets": [
+        ["linkText=Register Here", "linkText"],
+        ["css=.login-reg", "css:finder"],
+        ["xpath=//a[contains(text(),'Register Here')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/div/div/h3[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/register')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Register Here')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab595da9-937d-49e9-a8fb-f324c5f264fc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-box:nth-child(2)",
+      "targets": [
+        ["css=.input-box:nth-child(2)", "css:finder"],
+        ["xpath=//input[@value='']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5769a53e-c359-4566-b17a-6d69d5ab6476",
+      "comment": "",
+      "command": "type",
+      "target": "css=.input-box:nth-child(2)",
+      "targets": [
+        ["css=.input-box:nth-child(2)", "css:finder"],
+        ["xpath=//input[@value='testuser']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "testuser"
+    }, {
+      "id": "ff7fd60b-32d4-4e75-b691-74d2fa61c316",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-box:nth-child(4)",
+      "targets": [
+        ["css=.input-box:nth-child(4)", "css:finder"],
+        ["xpath=//input[@value='']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "43ff659e-f460-4ba3-977e-da02f4765d70",
+      "comment": "",
+      "command": "type",
+      "target": "css=.input-box:nth-child(4)",
+      "targets": [
+        ["css=.input-box:nth-child(4)", "css:finder"],
+        ["xpath=//input[@value='test']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "edb5031e-6e39-440b-a575-e0c2d1d70455",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-box:nth-child(6)",
+      "targets": [
+        ["css=.input-box:nth-child(6)", "css:finder"],
+        ["xpath=//input[@value='']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9049fc24-f126-448d-9b47-928b6e607fca",
+      "comment": "",
+      "command": "type",
+      "target": "css=.input-box:nth-child(6)",
+      "targets": [
+        ["css=.input-box:nth-child(6)", "css:finder"],
+        ["xpath=//input[@value='user']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "user"
+    }, {
+      "id": "03e8a03f-be01-4257-bf07-a716762e080d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-box:nth-child(8)",
+      "targets": [
+        ["css=.input-box:nth-child(8)", "css:finder"],
+        ["xpath=//input[@value='']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cc74b00a-7aaa-45cf-8d56-5143d033eb5f",
+      "comment": "",
+      "command": "type",
+      "target": "css=.input-box:nth-child(8)",
+      "targets": [
+        ["css=.input-box:nth-child(8)", "css:finder"],
+        ["xpath=//input[@value='testuser@gmail.com']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "testuser@gmail.com"
+    }, {
+      "id": "0284fa9a-66d1-4570-87b0-ace202036300",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-box:nth-child(10)",
+      "targets": [
+        ["css=.input-box:nth-child(10)", "css:finder"],
+        ["xpath=//input[@value='']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3629ce68-c0f9-4d6a-9596-be63aae4f279",
+      "comment": "",
+      "command": "type",
+      "target": "css=.input-box:nth-child(10)",
+      "targets": [
+        ["css=.input-box:nth-child(10)", "css:finder"],
+        ["xpath=//input[@value='testpassword']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "testpassword"
+    }, {
+      "id": "e3dfbb89-944d-4fa4-bede-b536adceb91e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.loginsubmit:nth-child(5)",
+      "targets": [
+        ["css=.loginsubmit:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='root']/div/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Register')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bc48d171-f6f7-4fa4-b5e2-c1db95212cd9",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.Toastify__toast-body > div:nth-child(2)",
+      "targets": [
+        ["css=.Toastify__toast-body > div:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='1']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "17e4391d-3766-4e02-b05e-6655cac4c2d4",
+    "name": "TC#13-TestRegister-NewUserBlankField",
+    "commands": [{
+      "id": "ed3fbc85-2661-4679-9ba0-423d425f3fad",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ed72824a-ba48-43b4-9971-af4932e64fe3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sidebar-login",
+      "targets": [
+        ["css=.sidebar-login", "css:finder"],
+        ["xpath=//div[@id='root']/div/nav/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a0836e8-f260-4c51-aebf-c1ab389fda64",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Register Here",
+      "targets": [
+        ["linkText=Register Here", "linkText"],
+        ["css=.login-reg", "css:finder"],
+        ["xpath=//a[contains(text(),'Register Here')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/div/div/h3[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/register')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Register Here')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "db572d85-71ba-44b9-94b7-0f6804f8ead8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-box:nth-child(4)",
+      "targets": [
+        ["css=.input-box:nth-child(4)", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "185a7828-c16d-4e51-8906-be16735dafd1",
+      "comment": "",
+      "command": "type",
+      "target": "css=.input-box:nth-child(4)",
+      "targets": [
+        ["css=.input-box:nth-child(4)", "css:finder"],
+        ["xpath=//input[@value='name']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "name"
+    }, {
+      "id": "53727f03-091f-4266-b56a-401920271d92",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-box:nth-child(6)",
+      "targets": [
+        ["css=.input-box:nth-child(6)", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d1961ce4-cfd3-4d9b-a731-0e6c1f1e1e85",
+      "comment": "",
+      "command": "type",
+      "target": "css=.input-box:nth-child(6)",
+      "targets": [
+        ["css=.input-box:nth-child(6)", "css:finder"],
+        ["xpath=//input[@value='lname']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "lname"
+    }, {
+      "id": "98332d73-46fd-4561-9d30-fb1372770ebc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-box:nth-child(8)",
+      "targets": [
+        ["css=.input-box:nth-child(8)", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d01a4663-b32f-4717-bb4c-0c179e878291",
+      "comment": "",
+      "command": "type",
+      "target": "css=.input-box:nth-child(8)",
+      "targets": [
+        ["css=.input-box:nth-child(8)", "css:finder"],
+        ["xpath=//input[@value='email@gmail.com']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "email@gmail.com"
+    }, {
+      "id": "f77ba39c-3e17-4207-a46c-e5c8cc00691a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-box:nth-child(10)",
+      "targets": [
+        ["css=.input-box:nth-child(10)", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c2b943ee-1f83-458e-9ac0-fade7d929174",
+      "comment": "",
+      "command": "type",
+      "target": "css=.input-box:nth-child(10)",
+      "targets": [
+        ["css=.input-box:nth-child(10)", "css:finder"],
+        ["xpath=//input[@value='password']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/div/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "password"
+    }, {
+      "id": "e1428838-6d22-49c9-af99-9d0e01152708",
+      "comment": "",
+      "command": "click",
+      "target": "css=.loginsubmit:nth-child(5)",
+      "targets": [
+        ["css=.loginsubmit:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='root']/div/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Register')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ee0abc6b-5cde-4830-bec9-9a0ab9f45221",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.Toastify__toast-body > div:nth-child(2)",
+      "targets": [
+        ["css=.Toastify__toast-body > div:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='1']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "73e1bd1f-1ee4-4da3-8271-05b2a31cc0fe",
+    "name": "TC#15-TestViewBookInformation",
+    "commands": [{
+      "id": "f6db401a-c511-445b-9f33-424622b849c5",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0601e614-227a-4abe-bd99-3a3a42d43584",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Search",
+      "targets": [
+        ["linkText=Search", "linkText"],
+        ["css=.sidebar-links:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Search')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div[2]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/search')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "56198c9f-2180-4c07-9210-56c7080d3730",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "linkText=Search",
+      "targets": [
+        ["linkText=Search", "linkText"],
+        ["css=.sidebar-links:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Search')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div[2]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/search')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "33abb391-4ebc-4265-b85a-ba03b5b81d47",
+      "comment": "",
+      "command": "click",
+      "target": "css=.book:nth-child(2) > .title",
+      "targets": [
+        ["css=.book:nth-child(2) > .title", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//div[2]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'The Hunger Games')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "df25cd2e-64e1-4d08-b314-01f5bf2753d1",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.book-title",
+      "targets": [
+        ["css=.book-title", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div/div[2]/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'The Hunger Games')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "da3e04cb-0b36-4432-a14f-e6cff7280a40",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.book-description",
+      "targets": [
+        ["css=.book-description", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div/div[2]/h4", "xpath:idRelative"],
+        ["xpath=//h4", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "28b71529-d34a-4939-8389-955e0785c1a2",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.book-author",
+      "targets": [
+        ["css=.book-author", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//div[2]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Suzanne Collins')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1dfc42ad-0140-4282-8ee0-55e6e70d34a0",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.book-cover_ > img",
+      "targets": [
+        ["css=.book-cover_ > img", "css:finder"],
+        ["xpath=//img[@alt='The Hunger Games']", "xpath:img"],
+        ["xpath=//div[@id='root']/div/main/div/div/div/img", "xpath:idRelative"],
+        ["xpath=//div/div/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "28875523-9432-4c43-9bd0-8147e4d6336e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.stars",
+      "targets": [
+        ["css=.stars", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div[2]/h4", "xpath:idRelative"],
+        ["xpath=//main/div/div[2]/h4", "xpath:position"],
+        ["xpath=//h4[contains(.,'Reviews')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "d7c79f6f-ceba-4d5c-a7c0-7b1478487578",
+    "name": "TC#1-TestWriteAReview",
+    "commands": [{
+      "id": "a97d47e6-df13-48d9-87e0-33a6dc7e0153",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "320e4e5c-c3b5-4f6f-89d4-e46d93484819",
+      "comment": "",
+      "command": "verifyNotText",
+      "target": "css=h2:nth-child(1)",
+      "targets": [
+        ["css=h2:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='root']/div/nav/div[3]/div/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'John Doe')]", "xpath:innerText"]
+      ],
+      "value": "GUEST"
+    }, {
+      "id": "6a69f796-6d33-4015-b4bf-973bb57f954b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Search",
+      "targets": [
+        ["linkText=Search", "linkText"],
+        ["css=.sidebar-links:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Search')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div[2]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/search')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7b92770a-d913-4847-8926-66e609bafaa1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.book:nth-child(3) > .title",
+      "targets": [
+        ["css=.book:nth-child(3) > .title", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div[3]/h2", "xpath:idRelative"],
+        ["xpath=//div[3]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'All the Light We Cannot See')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a9bd76a4-f99a-48fd-9c34-e7df3c6cd673",
+      "comment": "",
+      "command": "click",
+      "target": "css=.leave-review",
+      "targets": [
+        ["css=.leave-review", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div/div[3]/button[4]", "xpath:idRelative"],
+        ["xpath=//button[4]", "xpath:position"],
+        ["xpath=//button[contains(.,'Leave a review')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a7221563-39a5-4dc7-8782-2020f67781e2",
+      "comment": "",
+      "command": "click",
+      "target": "css=label:nth-child(3) > .star",
+      "targets": [
+        ["css=label:nth-child(3) > .star", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div/div[2]/div/form/div[2]/div/label[3]/span", "xpath:idRelative"],
+        ["xpath=//label[3]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9e0418d3-b300-41dc-aba7-8c5c48013619",
+      "comment": "",
+      "command": "click",
+      "target": "name=feedback",
+      "targets": [
+        ["name=feedback", "name"],
+        ["css=.textarea-style", "css:finder"],
+        ["xpath=//textarea[@name='feedback']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div/div/div[2]/div/form/div[3]/label/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "68ca77d6-c37a-4924-9012-acc878b86c4f",
+      "comment": "",
+      "command": "type",
+      "target": "name=feedback",
+      "targets": [
+        ["name=feedback", "name"],
+        ["css=.textarea-style", "css:finder"],
+        ["xpath=//textarea[@name='feedback']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div/div/div[2]/div/form/div[3]/label/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "I enjoyed this book."
+    }, {
+      "id": "6b781ce6-607b-4a0d-b6e7-1c2edbefe9ea",
+      "comment": "",
+      "command": "click",
+      "target": "name=submitButton",
+      "targets": [
+        ["name=submitButton", "name"],
+        ["css=.submit", "css:finder"],
+        ["xpath=//button[@name='submitButton']", "xpath:attributes"],
+        ["xpath=//div[@id='submitButton']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'ADD REVIEW')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f5ed3f32-7f2a-4b1f-8de2-73f800ab1096",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.book-cover_ > img",
+      "targets": [
+        ["css=.book-cover_ > img", "css:finder"],
+        ["xpath=//img[@alt='All the Light We Cannot See']", "xpath:img"],
+        ["xpath=//div[@id='root']/div/main/div/div/div/img", "xpath:idRelative"],
+        ["xpath=//div/div/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e195b4e2-dce8-40b8-abd5-c5c7c81fb0b4",
+    "name": "TC#16-TestAddBook**NeedsManualInterventiononCoverImage",
+    "commands": [{
+      "id": "dfb7e041-ea05-44de-ac97-7c4a01149be5",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff77eeb3-1f4f-4854-9908-634afcbef71b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1041x900",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0a8fb3b4-d865-4f18-afa1-aaa8861a3bd6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Search",
+      "targets": [
+        ["linkText=Search", "linkText"],
+        ["css=.sidebar-links:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Search')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div[2]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/search')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "661fcdfd-5bec-42fb-ac6c-f64256f90877",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "linkText=Search",
+      "targets": [
+        ["linkText=Search", "linkText"],
+        ["css=.sidebar-links:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Search')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div[2]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/search')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "51826452-a741-4e35-92ed-5613b980532e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add Book",
+      "targets": [
+        ["linkText=Add Book", "linkText"],
+        ["css=#addBook > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Add Book')]", "xpath:link"],
+        ["xpath=//span[@id='addBook']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/addBook')]", "xpath:href"],
+        ["xpath=//span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add Book')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c433aff-0ce3-428d-a126-d9d8059254eb",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@value='']", "xpath:attributes"],
+        ["xpath=//div[@id='uploadImage']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b73c087-7299-40d5-aab5-68eed996a9c2",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@value='C:\\fakepath\\bookcover.jpeg']", "xpath:attributes"],
+        ["xpath=//div[@id='uploadImage']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "C:/fakepath/bookcover.jpeg"
+    }, {
+      "id": "23b7fcd0-4f66-4048-aefa-f66a4045dd40",
+      "comment": "",
+      "command": "click",
+      "target": "css=#bookName > #bookName",
+      "targets": [
+        ["css=#bookName > #bookName", "css:finder"],
+        ["xpath=//input[@id='bookName']", "xpath:attributes"],
+        ["xpath=//div[@id='bookName']/input", "xpath:idRelative"],
+        ["xpath=//form/div/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "895eacc8-7358-48b2-bdd3-6a1d7e3467bf",
+      "comment": "",
+      "command": "type",
+      "target": "css=#bookName > #bookName",
+      "targets": [
+        ["css=#bookName > #bookName", "css:finder"],
+        ["xpath=//input[@id='bookName']", "xpath:attributes"],
+        ["xpath=//div[@id='bookName']/input", "xpath:idRelative"],
+        ["xpath=//form/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "Harry Potter and the Deathly Hallows"
+    }, {
+      "id": "bd5c90ab-aa27-4841-85cf-9d56a5e7300e",
+      "comment": "",
+      "command": "click",
+      "target": "css=#bookISBN > #bookISBN",
+      "targets": [
+        ["css=#bookISBN > #bookISBN", "css:finder"],
+        ["xpath=//input[@id='bookISBN']", "xpath:attributes"],
+        ["xpath=//div[@id='bookISBN']/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3156b4ee-ffbf-4880-970e-dcb665fab103",
+      "comment": "",
+      "command": "type",
+      "target": "css=#bookISBN > #bookISBN",
+      "targets": [
+        ["css=#bookISBN > #bookISBN", "css:finder"],
+        ["xpath=//input[@id='bookISBN']", "xpath:attributes"],
+        ["xpath=//div[@id='bookISBN']/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "7000"
+    }, {
+      "id": "6b014639-0b60-43be-bfaf-ac7bd30cac70",
+      "comment": "",
+      "command": "click",
+      "target": "css=#bookOverview > #bookOverview",
+      "targets": [
+        ["css=#bookOverview > #bookOverview", "css:finder"],
+        ["xpath=//textarea[@id='bookOverview']", "xpath:attributes"],
+        ["xpath=//div[@id='bookOverview']/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc4d9a2e-0fe0-4100-a797-a2b3da8dc758",
+      "comment": "",
+      "command": "type",
+      "target": "css=#bookOverview > #bookOverview",
+      "targets": [
+        ["css=#bookOverview > #bookOverview", "css:finder"],
+        ["xpath=//textarea[@id='bookOverview']", "xpath:attributes"],
+        ["xpath=//div[@id='bookOverview']/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "The final issue of the Harry Potter series."
+    }, {
+      "id": "d73eb193-0572-440f-af3f-d0250bbbf3dd",
+      "comment": "",
+      "command": "click",
+      "target": "css=#authorName > #authorName",
+      "targets": [
+        ["css=#authorName > #authorName", "css:finder"],
+        ["xpath=//input[@id='authorName']", "xpath:attributes"],
+        ["xpath=//div[@id='authorName']/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "db450c36-2f38-4eee-adf9-386d81f45b46",
+      "comment": "",
+      "command": "type",
+      "target": "css=#authorName > #authorName",
+      "targets": [
+        ["css=#authorName > #authorName", "css:finder"],
+        ["xpath=//input[@id='authorName']", "xpath:attributes"],
+        ["xpath=//div[@id='authorName']/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "J.K. Rowling"
+    }, {
+      "id": "997cb900-d97d-4982-9e6a-5cfe7c002786",
+      "comment": "",
+      "command": "click",
+      "target": "css=#aboutAuthor > #aboutAuthor",
+      "targets": [
+        ["css=#aboutAuthor > #aboutAuthor", "css:finder"],
+        ["xpath=//textarea[@id='aboutAuthor']", "xpath:attributes"],
+        ["xpath=//div[@id='aboutAuthor']/textarea", "xpath:idRelative"],
+        ["xpath=//div[6]/textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d9759451-d528-4cf7-a230-3737dd3f3b99",
+      "comment": "",
+      "command": "type",
+      "target": "css=#aboutAuthor > #aboutAuthor",
+      "targets": [
+        ["css=#aboutAuthor > #aboutAuthor", "css:finder"],
+        ["xpath=//textarea[@id='aboutAuthor']", "xpath:attributes"],
+        ["xpath=//div[@id='aboutAuthor']/textarea", "xpath:idRelative"],
+        ["xpath=//div[6]/textarea", "xpath:position"]
+      ],
+      "value": "J.K. Rowling is most known for her famous Harry Potter series. "
+    }, {
+      "id": "43ae713f-dcd4-48f4-8d2c-af69cf4e9c8b",
+      "comment": "",
+      "command": "click",
+      "target": "name=addButton",
+      "targets": [
+        ["name=addButton", "name"],
+        ["css=.submit", "css:finder"],
+        ["xpath=//button[@name='addButton']", "xpath:attributes"],
+        ["xpath=//div[@id='addBookSubmitButton']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add Book')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8f940624-b96b-47c6-9903-4265cdc7c4a5",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.book-title",
+      "targets": [
+        ["css=.book-title", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div/div[2]/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Harry Potter and the Deathly Hallows')]", "xpath:innerText"]
+      ],
+      "value": "Harry Potter and the Deathly Hallows"
+    }]
+  }, {
+    "id": "057ab9e6-a6a5-4962-91d2-62e23c0b8d44",
+    "name": "TC#4-TestAddBookToCurrentlyReading",
+    "commands": [{
+      "id": "52d57698-2b63-4c27-8636-af810c661e33",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0fafe818-e7bf-4d09-8c4a-530e7175cddd",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Search",
+      "targets": [
+        ["linkText=Search", "linkText"],
+        ["css=.sidebar-links:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Search')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div[2]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/search')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "75e50a75-5c0a-4d6a-8ad9-d2f261768730",
+      "comment": "",
+      "command": "click",
+      "target": "css=.book:nth-child(2) > .title",
+      "targets": [
+        ["css=.book:nth-child(2) > .title", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//div[2]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'The Hunger Games')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "45a4e3f6-0c10-403e-9ef0-75a3b9aef03d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.current",
+      "targets": [
+        ["css=.current", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div/div[3]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Add to \"Currently Reading\"')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4109a9bd-0bed-4229-9229-8b262f5ac2a6",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.review-card:nth-child(1) h1",
+      "targets": [],
+      "value": "The Hunger Games"
+    }]
+  }, {
+    "id": "fe8bddc2-c0e4-4975-b91d-a6ecf7de460c",
+    "name": "TC#5-TestRemoveBookFromCurrentlyReading",
+    "commands": [{
+      "id": "b5cc065c-f05c-4b72-883b-11627dad7984",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "67bd4ea1-8de7-4d1e-8d2e-5d59e231203c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Currently reading",
+      "targets": [
+        ["linkText=Currently reading", "linkText"],
+        ["css=.sidebar-links:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Currently reading')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div[2]/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/currentlyreading')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Currently reading')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e8477e2-db5c-49dd-889a-344c77d45793",
+      "comment": "",
+      "command": "click",
+      "target": "css=.review-card:nth-child(1) .remove-book",
+      "targets": [
+        ["css=.review-card:nth-child(1) .remove-book", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div[2]/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Remove Book')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "353e3f38-a758-4db2-8a37-61794cde24d8",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.book-cover_ > img",
+      "targets": [
+        ["css=.book-cover_ > img", "css:finder"],
+        ["xpath=//img[@alt='The Hunger Games']", "xpath:img"],
+        ["xpath=//div[@id='root']/div/main/div/div/div/img", "xpath:idRelative"],
+        ["xpath=//div/div/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "6bcdfbfc-63cc-4107-8c3b-66a7fe657cdf",
+    "name": "TC#2-TestAddBookToRead",
+    "commands": [{
+      "id": "bbf372e4-61a2-4d70-8467-5a580c0d6d51",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "10fa1001-0c9c-426a-af88-20d0a070a04c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Search",
+      "targets": [
+        ["linkText=Search", "linkText"],
+        ["css=.sidebar-links:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Search')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div[2]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/search')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c629db70-552a-46f2-a832-2161d1eaf23a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.book:nth-child(4) > .title",
+      "targets": [
+        ["css=.book:nth-child(4) > .title", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div[4]/h2", "xpath:idRelative"],
+        ["xpath=//div[4]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'The Martian')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e257b386-0cd5-4eed-a7ce-98f487dd978c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.read",
+      "targets": [
+        ["css=.read", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div/div[3]/button[3]", "xpath:idRelative"],
+        ["xpath=//button[3]", "xpath:position"],
+        ["xpath=//button[contains(.,'Add to \"Read\"')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a7197c7f-f6a5-430e-a2c1-b954e4506c9d",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.review-card:nth-child(1) h1",
+      "targets": [
+        ["css=.review-card:nth-child(1) h1", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div[2]/div/div/div/h1", "xpath:idRelative"],
+        ["xpath=//div/div/h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'The Martian')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "d7ec8d10-0000-49fa-a023-1a18d4aeef10",
+    "name": "TC#3-TestRemoveBookFromRead",
+    "commands": [{
+      "id": "c35c72a6-becf-4474-a73f-a7544b9c50ee",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fc1711b8-6faa-494c-b7a4-81cd535d8892",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Already read",
+      "targets": [
+        ["linkText=Already read", "linkText"],
+        ["css=.sidebar-links:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Already read')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div[2]/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/alreadyread')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Already read')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1135d484-5da6-4220-ae60-be15957eb765",
+      "comment": "",
+      "command": "click",
+      "target": "css=.review-card:nth-child(1) .remove-book",
+      "targets": [
+        ["css=.review-card:nth-child(1) .remove-book", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div[2]/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Remove Book')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d14e6ba-1788-472f-aa0c-32dbda7144df",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.book-cover_ > img",
+      "targets": [
+        ["css=.book-cover_ > img", "css:finder"],
+        ["xpath=//img[@alt='The Martian']", "xpath:img"],
+        ["xpath=//div[@id='root']/div/main/div/div/div/img", "xpath:idRelative"],
+        ["xpath=//div/div/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "fb9a68da-878e-42e6-b0b7-afdd2e526ce7",
+    "name": "TC#6-TestAddBookToWantToRead",
+    "commands": [{
+      "id": "1f44b28c-b3ba-4433-9697-86689cdff169",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2f5102af-4ddb-4fa1-8008-2f5c4b9967dc",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Search",
+      "targets": [
+        ["linkText=Search", "linkText"],
+        ["css=.sidebar-links:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Search')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div[2]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/search')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e43b7158-40d1-4f7a-a2a3-8e9ff2836ce5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.book:nth-child(2) > .title",
+      "targets": [
+        ["css=.book:nth-child(2) > .title", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//div[2]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'The Hunger Games')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f57f6492-dc46-43c1-acc8-a2cd80418e32",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.want",
+      "targets": [
+        ["css=.want", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add to \"Want to Read\"')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b237ee34-7202-41e2-a67f-63ae50f21766",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.want",
+      "targets": [
+        ["css=.want", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add to \"Want to Read\"')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5aa78ee7-4d62-4771-a361-f8921c15ad73",
+      "comment": "",
+      "command": "click",
+      "target": "css=.want",
+      "targets": [
+        ["css=.want", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add to \"Want to Read\"')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6af132f6-1d0c-4d40-bfc2-1188baadfaf8",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.review-card:nth-child(1) h1",
+      "targets": [
+        ["css=.review-card:nth-child(1) h1", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div[2]/div/div/div/h1", "xpath:idRelative"],
+        ["xpath=//div/div/h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'The Hunger Games')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "0e267efc-6eb2-4519-9c37-0386da6d4a57",
+    "name": "TC#7-TestRemoveBookFromWantToRead",
+    "commands": [{
+      "id": "d1f3db1e-788d-420b-9ccd-8922255727f1",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4732da1f-0875-4f1f-813a-8af004f300c3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sidebar-links:nth-child(3)",
+      "targets": [
+        ["css=.sidebar-links:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='root']/div/nav/div[2]/ul/li[3]", "xpath:idRelative"],
+        ["xpath=//li[3]", "xpath:position"],
+        ["xpath=//li[contains(.,'Want to read')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2178877a-0bbe-46e3-af95-c815bd27d768",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Want to read",
+      "targets": [
+        ["linkText=Want to read", "linkText"],
+        ["css=.sidebar-links:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Want to read')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div[2]/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/wanttoread')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Want to read')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf6a647e-6cc2-4174-9ec3-84a0aaef2076",
+      "comment": "",
+      "command": "click",
+      "target": "css=.review-card:nth-child(1) .remove-book",
+      "targets": [
+        ["css=.review-card:nth-child(1) .remove-book", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/div/div[2]/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Remove Book')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e5933fa8-fa37-4c32-833f-2b4ff9f416f1",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.book-cover_ > img",
+      "targets": [
+        ["css=.book-cover_ > img", "css:finder"],
+        ["xpath=//img[@alt='The Hunger Games']", "xpath:img"],
+        ["xpath=//div[@id='root']/div/main/div/div/div/img", "xpath:idRelative"],
+        ["xpath=//div/div/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "624b8e23-3048-46b6-a3cb-2c24b9da05fc",
+    "name": "TC#17-TestTopPicks",
+    "commands": [{
+      "id": "16aeb24e-08bb-4753-b952-987c12140727",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dde63002-ab08-414a-95f7-fcd1988ed712",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.book:nth-child(1)",
+      "targets": [
+        ["css=.book:nth-child(1)", "css:finder"],
+        ["xpath=//div[@value='600']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "248bd5fd-72d4-4a99-977d-6322fa489d89",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.book:nth-child(2)",
+      "targets": [
+        ["css=.book:nth-child(2)", "css:finder"],
+        ["xpath=//div[@value='400']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6d54c097-ef4e-4cdd-b40f-66c1e0d0db93",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.book:nth-child(3)",
+      "targets": [
+        ["css=.book:nth-child(3)", "css:finder"],
+        ["xpath=//div[@value='100']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div/div[2]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fd34f2a4-9f4c-4e22-ad5d-4251364e61d6",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.book:nth-child(4)",
+      "targets": [
+        ["css=.book:nth-child(4)", "css:finder"],
+        ["xpath=//div[@value='1400']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div/div[2]/div[4]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e40b42cb-8770-4de1-8b01-713b051f680c",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.book:nth-child(5)",
+      "targets": [
+        ["css=.book:nth-child(5)", "css:finder"],
+        ["xpath=//div[@value='1000']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/div/div[2]/div[5]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[5]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "da727b8b-3262-4ac3-8b95-ca67d93e8bd8",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["3aeb3915-8f1f-44a5-b78c-645591f6ea4f"]
+  }],
+  "urls": ["http://localhost:3000/"],
+  "plugins": []
+}
