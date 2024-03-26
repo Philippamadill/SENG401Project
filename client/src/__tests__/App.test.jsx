@@ -1,17 +1,62 @@
 import * as React from 'react';
 import { useContext } from "react";
-import {render, RenderOptions, screen} from '@testing-library/react';
+import {getByTestId, render, RenderOptions, screen, waitFor} from '@testing-library/react';
 import '@testing-library/jest-dom'
 import { AuthenticationContext } from "../context/UserContext";
 import useLocalStorage from "use-local-storage";
 import App from '../app/App.js';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-const [authentication, setAuthentication] = useLocalStorage("auth", {guest: true, isLoggedIn: false})
+test('renders login button', async () => {
+    const {findByText} = render(<BrowserRouter>
+      <Routes>
+        <Route {...<App />} />
+      </Routes>
+    </BrowserRouter>);
+    await waitFor(()=> expect(findByText("Login")).toBeTruthy());
+});
 
-test('renders login page', () => {
-    <ContextObject.Provider value={{authentication, setAuthentication}}>
-      <App />
-    </ContextObject.Provider>
-    const linkElement = screen.findByText(/Login/i);
-    expect(linkElement).toBeInTheDocument();
+test('renders guest button', async () => {
+  const {findByText} = render(<BrowserRouter>
+    <Routes>
+      <Route {...<App />} />
+    </Routes>
+  </BrowserRouter>);
+  await waitFor(()=> expect(findByText("Continue as Guest")).toBeTruthy());
+});
+
+test('renders reviews link', async () => {
+  const {findByText} = render(<BrowserRouter>
+    <Routes>
+      <Route {...<App />} />
+    </Routes>
+  </BrowserRouter>);
+  await waitFor(()=> expect(findByText("Reviews")).toBeTruthy());
+});
+
+test('renders currently reading link', async () => {
+  const {findByText} = render(<BrowserRouter>
+    <Routes>
+      <Route {...<App />} />
+    </Routes>
+  </BrowserRouter>);
+  await waitFor(()=> expect(findByText("Currently reading")).toBeTruthy());
+});
+
+test('renders want to read link', async () => {
+  const {findByText} = render(<BrowserRouter>
+    <Routes>
+      <Route {...<App />} />
+    </Routes>
+  </BrowserRouter>);
+  await waitFor(()=> expect(findByText("Want to read")).toBeTruthy());
+});
+
+test('renders search link', async () => {
+  const {findByText} = render(<BrowserRouter>
+    <Routes>
+      <Route {...<App />} />
+    </Routes>
+  </BrowserRouter>);
+  await waitFor(()=> expect(findByText("Search")).toBeTruthy());
 });
