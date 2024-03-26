@@ -1,130 +1,93 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+//import Math from 'math';
 //import axios from 'axios'; // Assuming you're using Axios for HTTP requests
+import { useNavigate } from "react-router-dom";
 import "../assets/styling/TopPick.css";
 
-const dummyBooks = [
-  {
-    ISBN: "1234567890123",
-    title: "Book Title 1",
-    author: "Author 1",
-  },
-  {
-    ISBN: "2345678901234",
-    title: "Book Title 2",
-    author: "Author 2",
-  },
-  {
-    ISBN: "1",
-    title: "Book Title 3",
-    author: "Author 3",
-  },
-  {
-    ISBN: "1234567890123",
-    title: "Book Title 1",
-    author: "Author 1",
-  },
-  {
-    ISBN: "2345678901234",
-    title: "Book Title 2",
-    author: "Author 2",
-  },
-  {
-    ISBN: "1",
-    title: "Book Title 3",
-    author: "Author2 3",
-  },
-  {
-    ISBN: "1234567890123",
-    title: "Book Title 1",
-    author: "Author 1",
-  },
-  {
-    ISBN: "2345678901234",
-    title: "Book Title 2",
-    author: "Author 2",
-  },
-  {
-    ISBN: "1",
-    title: "Book Title 3",
-    author: "Author 3",
-  },
-  {
-    ISBN: "1",
-    title: "Book Title 3",
-    author: "Author 3",
-  },
-  {
-    ISBN: "1",
-    title: "Book Title 3",
-    author: "Author 3",
-  },
-  {
-    ISBN: "1",
-    title: "Book Title 3",
-    author: "Author 3",
-  },
-
-  {
-    ISBN: "1",
-    title: "Book Title 3",
-    author: "Author 3",
-  },
-  {
-    ISBN: "1",
-    title: "Book Title 3",
-    author: "Author 3",
-  },
-  {
-    ISBN: "1",
-    title: "Book Title 3",
-    author: "Author 3",
-  },
-
-  {
-    ISBN: "1",
-    title: "Book Title 3",
-    author: "Author 3",
-  },
-  
-  // Add more dummy book objects as needed
-];
+var rand = [];
+var counter = 0;
 
 export default function TopPicks() {
-  const [books, setBooks] = useState(dummyBooks);
+  const [books, setBooks] = useState([]);
+  const randBook = [];
+  const navigate = useNavigate();
+  getBooksArray();
+  getBook();
 
-  useEffect(() => {
-    async function fetchBooks() {
-      try {
-        //const response = await axios.get('/api/books'); // Assuming your API endpoint is '/api/books'
-        //setBooks(response.data);
-      } catch (error) {
-        console.error("Error fetching books:", error);
+  
+async function getBooksArray(){
+  const route = "http://localhost:7003/book/getAllBooks";
+  //console.log(route);
+  //console.log(rand);
+  //console.log(route);
+  const response = await fetch(route, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+});
+console.log(response);
+  //console.log(response);
+  const jsonResponse = await response.json();
+  if (books.length === 0){
+    setBooks(jsonResponse);
+  }
+  console.log(books.length);
+}
+
+
+  async function getBook() {
+    
+    if(books.length>0){
+    const count = books.length;
+    console.log(books.length);
+    while(rand.length < 5){
+      let randomNumber = Math.floor(Math.random() * count); 
+      if (!(rand.includes(randomNumber))){
+        rand.push(randomNumber);
       }
     }
-    fetchBooks();
-  }, []);
+    //console.log(books.length);
+    if (randBook.length <5){
+    //console.log(jsonResponse);
+    randBook.push(books[rand[0]]);
+    randBook.push(books[rand[1]]);  
+    randBook.push(books[rand[2]]);
+    randBook.push(books[rand[3]]);
+    randBook.push(books[rand[4]]);
+    }
+    console.log(randBook);
+  }
+   // counter++;
+
+  } 
+
+  getBook();
+
 
   return (
     <div>
       <div className="top-bar">
         <h2 className="top-bar-title">Top Picks</h2>
-        <button className="add-book">ADD NEW BOOK </button>
       </div>
+      
       <div className="books-container">
-        {books.map((book) => (
-          <div key={book.ISBN} className="book-card">
+        {randBook.map((item) => (
+          <div
+            className="book"
+            key={item.ISBN}
+            value={item.ISBN}
+            onClick={(e) => {
+              navigate(`/viewBook/` + item.ISBN);
+            }}
+          >
+            <h2 className="title">{item.book_name}</h2>
+            <p className="author">By: {item.author_name}</p>
             <img
-              className="book-cover"
-              src={`/bookCovers/${book.ISBN}.jpg`}
-              alt={book.title}
+              className="cover"
+              src={`${item.cover_image}`}
+              alt={item.book_name}
             />
-            <div className="book-info">
-              <div className="title">
-                <h1>{book.title}</h1>
-              </div>
-              <div className="author">{book.author}</div>
-              <button className="remove-book">Remove Book</button>
-            </div>
           </div>
         ))}
       </div>

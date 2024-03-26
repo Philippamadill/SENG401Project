@@ -18,3 +18,15 @@
    `npx nodemon serviceController.js`
 
 ## Client Setup
+
+1. Go into the client directory\
+   &nbsp;&nbsp;&nbsp;`cd client`
+2. Run using the client side\
+   &nbsp;&nbsp;&nbsp;`npm start`
+
+
+## Database Setup 
+
+1. After the web server is running, run the SQL queries\
+   on your local instance of the database that you set up\
+   (based on above .env details)

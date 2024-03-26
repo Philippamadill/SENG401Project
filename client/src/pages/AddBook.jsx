@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import uploadImage from "../assets/images/up.png";
-import "../assets/styling/AddBook.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import uploadImage from "../assets/images/up.png";
+import "../assets/styling/AddBook.css";
 
 
 function AddBook() {
@@ -124,10 +124,10 @@ function AddBook() {
               Cover Image <span className="required">*</span>
             </p>
             <div id="uploadArea">
-              {!hide && <img src={uploadImage} alt="cloud upload icon"></img>}
+              {!hide && <img src={uploadImage} alt="cloud upload icon" className="uploaded-img"></img>}
               {previews &&
                 previews.map((pic) => {
-                  return <img src={pic} alt="user uploaded img" />;
+                  return <img src={pic} alt="user uploaded img" className='uploaded-img'/>;
                 })}
             </div>
             <div className="input-oneline">
@@ -177,7 +177,6 @@ function AddBook() {
             <textarea
               value={bookOverview}
               id="bookOverview"
-              placeholder="In a world where one race reigns supreme, who can stop them?"
               onChange={(e) => setBookOverview(e.target.value)}
               required
             ></textarea>
@@ -202,7 +201,6 @@ function AddBook() {
             <textarea
               value={aboutAuthor}
               id="aboutAuthor"
-              placeholder="Born and raised in St. Cloud Minnesota Marshal always had an interest in football"
               onChange={(e) => setAboutAuthor(e.target.value)}
               required
             ></textarea>
