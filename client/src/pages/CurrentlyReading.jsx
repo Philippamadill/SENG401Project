@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../assets/styling/TopPick.css";
 import { AuthenticationContext, UserContext } from "../context/UserContext.jsx";
 
-export default function TopPicks() {
+export default function CurrentlyReading() {
   const [books, setBooks] = useState([]);
 
   const { userInfo, setUserInfo } = useContext(UserContext);

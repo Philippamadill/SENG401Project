@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 //import axios from 'axios'; // Assuming you're using Axios for HTTP requests
 import "../assets/styling/TopPick.css";
 import { AuthenticationContext, UserContext } from "../context/UserContext.jsx";
-export default function TopPicks() {
+export default function WantToRead() {
   const [books, setBooks] = useState([]);
   const { userInfo, setUserInfo } = useContext(UserContext);
   const navigate = useNavigate();
