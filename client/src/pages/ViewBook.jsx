@@ -49,7 +49,7 @@ export default function ViewBook(props) {
   function handleReview() {
     console.log(userInfo.username);
     if (userInfo.username === undefined) {
-      navigate(`/`);
+      navigate(`/login`);
     } else {
       navigate(
         `/writeReview/` +
@@ -64,7 +64,7 @@ export default function ViewBook(props) {
   async function handleAdd(selector) {
     console.log(userInfo.username);
     if (userInfo.username === undefined) {
-      navigate(`/`);
+      navigate(`/login`);
     } else {
       const body = {
         ISBN: books.ISBN,
