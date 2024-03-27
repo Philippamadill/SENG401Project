@@ -9,38 +9,41 @@ export default function CurrentlyReading() {
 
   const { userInfo, setUserInfo } = useContext(UserContext);
   const navigate = useNavigate();
+  //function to fetch books that are on the users currently reading bookshelf
   async function fetchBooks() {
+    //route to the backend
     const route =
       "http://localhost:7003/bookshelf/getBooksFromCurrentlyReading?username=" +
       userInfo.username;
     console.log(route);
+    //Await response from the server
     const response = await fetch(route, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     });
-
+    //await json response containing data
     const resp = await response.json();
     setBooks(resp);
-    console.log(resp);
-    console.log(books.length);
   }
 
+  //Function to delete books from the users currently reading bookshelf
   async function deleteBook(e, ISBN) {
+    //route to the backend
     const route =
       "http://localhost:7003/bookshelf/deleteBookFromCurrentlyReading?ISBN=" +
       ISBN +
       "&username=" +
       userInfo.username;
-    console.log(route);
+      //await response from the backend
     await fetch(route, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
     });
-
+    //Redirect the user to the books viewbook page
     navigate(`/viewBook/` + ISBN);
   }
 

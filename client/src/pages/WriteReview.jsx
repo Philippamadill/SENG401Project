@@ -4,47 +4,6 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import "../assets/styling/WriteReview.css";
 import { AuthenticationContext, UserContext } from "../context/UserContext.jsx";
 
-//component works to get the book data - but need to figure out how to make it accessible in the write review function
-
-// const MyComponent = ({ isbn }) => {
-//     const [bookData, setBookData] = useState(null);
-
-//     useEffect(() => {
-//       const fetchData = async () => {
-//         try {
-//           const route = `http://localhost:7003/book/getBookByISBN?ISBN=${isbn}`;
-//           const response = await fetch(route, {
-//             method: 'GET',
-//             headers: {
-//               'Access-Control-Allow-Origin': '*',
-//               'Access-Control-Allow-Methods': 'GET',
-//               'Content-Type': 'application/json',
-//             },
-//           });
-
-//           if (!response.ok) {
-//             throw new Error('Failed to fetch book data');
-//           }
-
-//           const data = await response.json();
-//           setBookData(data);
-//         } catch (error) {
-//           console.error(error);
-//         }
-//       };
-
-//       fetchData();
-//     }, [isbn]);
-
-//     useEffect(() => {
-//       console.log('BOOKDATA', bookData);
-//     }, [bookData]);
-
-//     return null;
-//   };
-
-//hardcoded a book for now
-
 export default function WriteReview() {
   const navigate = useNavigate();
   const params = useParams();
@@ -52,14 +11,11 @@ export default function WriteReview() {
   const [hover, setHover] = useState(null);
   const [totalStars, setTotalStars] = useState(5);
   const [failText, setFailText] = useState("");
-  //const [book, setBook] = useState();
   const { userInfo, setUserInfo } = useContext(UserContext);
   const { authentication, setAuthentication } = useContext(
     AuthenticationContext
   );
-  console.log(userInfo);
-  console.log("PARAMS")
-  console.log(params)
+
   const book = {
     ISBN: params.ISBN,
     title: params.title,
@@ -69,36 +25,36 @@ export default function WriteReview() {
   
 
   async function getBook() {
+    //route to the server to get the book information
     const route =
       "http://localhost:7003/book/getBookByISBN?ISBN=" + params.ISBN;
-    console.log(route);
+    //await the response from the server
     const response = await fetch(route, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     });
-    console.log(response);
+    //await the json response containing the book data
     const jsonResponse = await response.json();
+    //set the book to the book from the database
     setBooks(jsonResponse);
-    console.log(jsonResponse);
   }
+  //call get book on page load
   useEffect(() => {
     getBook();
   }, []);
 
-  //works - fetches username from context
   const username = userInfo.username;
-  console.log(params.ISBN);
-  //ALSO NEED TO FETCH SELECTED BOOK ISBN - to get cover and to send to db - work in progress
 
+  //set a state for the form data
   const [formData, setFormData] = useState({
     isbn: book.ISBN,
     username: username,
     rating: 0,
     feedback: "",
   });
-
+  //on a rating change keep the previous info but change the rating
   const handleRatingChange = (rating) => {
     setRating(rating);
     setFormData((prevData) => ({
@@ -106,14 +62,15 @@ export default function WriteReview() {
       rating: rating,
     }));
   };
+  //on an input change keep the previous info but change the value for that input
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  //run on form submission
   async function handleSubmit(e) {
     e.preventDefault();
-    // You can handle form submission logic here
     const body = {
       ISBN: formData.isbn,
       username: formData.username,
@@ -121,10 +78,8 @@ export default function WriteReview() {
       description: formData.feedback,
     };
 
-    //works - sends data to the db - works as long as the book and username already exists in the db - (foreign keys)
+    //route to the server to create a review
     const route = "http://localhost:7003/review/createReview";
-    console.log(route);
-    console.log(JSON.stringify(body));
     const response = await fetch(route, {
       method: "POST",
       headers: {
@@ -134,17 +89,16 @@ export default function WriteReview() {
       },
       body: JSON.stringify(body),
     });
-    console.log(response);
     if (
       response.status === 400 ||
       response.status === 500 ||
       response.status === 500 ||
       response.status === 500
     ) {
-      //need to figure out what to do in terms of error handling
+      //if theres an error, display the error message
       setFailText(response.statusText);
     } else if (response.status === 201) {
-      //successfull case
+      //if the review is successful navigate to the books viewBook page
       navigate("/viewBook/" + book.ISBN);
     }
   }

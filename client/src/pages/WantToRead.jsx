@@ -4,43 +4,45 @@ import { Link, useNavigate } from "react-router-dom";
 import "../assets/styling/TopPick.css";
 import { AuthenticationContext, UserContext } from "../context/UserContext.jsx";
 export default function WantToRead() {
-  const [books, setBooks] = useState([]);
-  const { userInfo, setUserInfo } = useContext(UserContext);
-  const navigate = useNavigate();
-  async function fetchBooks() {
+const [books, setBooks] = useState([]);
+const { userInfo, setUserInfo } = useContext(UserContext);
+const navigate = useNavigate();
+  
+async function fetchBooks() {
+  //route to the backend to fetch books that the user wants to read
     const route =
       "http://localhost:7003/bookshelf/getBooksFromWantToRead?username=" +
       userInfo.username;
-    console.log(route);
+    //await the response from the backend
     const response = await fetch(route, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     });
-
+    //await the json response containing the want to read info
     const resp = await response.json();
     setBooks(resp);
-    console.log(resp);
-    console.log(books.length);
   }
 
   async function deleteBook(e, ISBN) {
+    //route to the backend to delete a book from want to read
     const route =
       "http://localhost:7003/bookshelf/deleteBookFromWantToRead?ISBN=" +
       ISBN +
       "&username=" +
       userInfo.username;
-    console.log(route);
+    //await the response from the server
     await fetch(route, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
     });
-
+    //reload the window
     window.location.reload();
   }
+  //call fetchBooks() on page load
   useEffect(() => {
     fetchBooks();
   }, []);

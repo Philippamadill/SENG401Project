@@ -16,20 +16,19 @@ export default function TopPicks() {
 
   
 async function getBooksArray(){
+  //route to backend to get books
   const route = "http://localhost:7003/book/getAllBooks";
-  //console.log(route);
-  //console.log(rand);
-  //console.log(route);
+  //await response from server
   const response = await fetch(route, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
 });
-console.log(response);
-  //console.log(response);
+  //await json response containing book data
   const jsonResponse = await response.json();
   if (books.length === 0){
+    //set the books array to the json data
     setBooks(jsonResponse);
   }
   console.log(books.length);
@@ -39,29 +38,26 @@ console.log(response);
   async function getBook() {
     
     if(books.length>0){
-    const count = books.length;
-    console.log(books.length);
-    while(rand.length < 5){
-      let randomNumber = Math.floor(Math.random() * count); 
-      if (!(rand.includes(randomNumber))){
-        rand.push(randomNumber);
+      const count = books.length;
+
+      while(rand.length < 5){
+        //generate a random number
+        let randomNumber = Math.floor(Math.random() * count); 
+        if (!(rand.includes(randomNumber))){
+          rand.push(randomNumber);
+        }
+      }
+      //push 5 random books onto the book array
+      if (randBook.length <5){
+        randBook.push(books[rand[0]]);
+        randBook.push(books[rand[1]]);  
+        randBook.push(books[rand[2]]);
+        randBook.push(books[rand[3]]);
+        randBook.push(books[rand[4]]);
       }
     }
-    //console.log(books.length);
-    if (randBook.length <5){
-    //console.log(jsonResponse);
-    randBook.push(books[rand[0]]);
-    randBook.push(books[rand[1]]);  
-    randBook.push(books[rand[2]]);
-    randBook.push(books[rand[3]]);
-    randBook.push(books[rand[4]]);
-    }
-    console.log(randBook);
-  }
-   // counter++;
-
   } 
-
+  //call get books
   getBook();
 
 

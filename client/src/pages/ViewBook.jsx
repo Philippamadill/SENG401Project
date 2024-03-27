@@ -6,51 +6,52 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import "../assets/styling/ViewBook.css";
 import { AuthenticationContext, UserContext } from "../context/UserContext.jsx";
 export default function ViewBook(props) {
-  // const[hover, setHover] = useState(null);
   const params = useParams();
   const [books, setBooks] = useState();
   const [reviews, setReviews] = useState([]);
   const navigate = useNavigate();
   const { userInfo, setUserInfo } = useContext(UserContext);
-  console.log(params.ISBN);
 
   async function getBook() {
+    //route to the server to get book by ISBN
     const route =
       "http://localhost:7003/book/getBookByISBN?ISBN=" + params.ISBN;
-    console.log(route);
+    //await the response from the server
     const response = await fetch(route, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     });
-    console.log(response);
+    //await the json response from the server that contains the book information
     const jsonResponse = await response.json();
     setBooks(jsonResponse);
-    console.log(jsonResponse);
   }
 
   async function getReviews() {
+    //route to the server to get the review information for the book
     const route =
       "http://localhost:7003/review/getReviewsByISBN?ISBN=" + params.ISBN;
-    console.log(route);
+    //await the response from the server
     const response = await fetch(route, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     });
-    console.log(response);
+    //await the json response from the server that contains the review information
     const jsonResponse = await response.json();
+    //set the array of reviews to the json response
     setReviews(jsonResponse);
-    console.log(jsonResponse);
   }
 
   function handleReview() {
-    console.log(userInfo.username);
+    //if the user is not logged in redirect them to the login page
     if (userInfo.username === undefined) {
       navigate(`/login`);
-    } else {
+    } 
+    //if the user is logged in, navigate them to the leave a review page for that book
+    else {
       navigate(
         `/writeReview/` +
           books.ISBN +
@@ -62,17 +63,20 @@ export default function ViewBook(props) {
     }
   }
   async function handleAdd(selector) {
-    console.log(userInfo.username);
+    //If the user is not logged in redirect them to the login page
     if (userInfo.username === undefined) {
       navigate(`/login`);
-    } else {
+    } 
+    //if the user is logged in, add the book to the specified shelf and redirect them to that shelf
+    else {
+      //create the body to send to the server
       const body = {
         ISBN: books.ISBN,
         username: userInfo.username,
       };
-
+      //route to the server to add a book to a shelf
       const route = "http://localhost:7003/bookshelf/addBookTo" + selector;
-      console.log(route);
+      //await the response from the server
       const response = await fetch(route, {
         method: "POST",
         headers: {
@@ -80,11 +84,11 @@ export default function ViewBook(props) {
         },
         body: JSON.stringify(body),
       });
-      console.log(response);
+      //navigate to the specified shelf
       navigate(`/` + selector);
     }
   }
-
+  //call these functions on page load
   useEffect(() => {
     getBook();
     getReviews();

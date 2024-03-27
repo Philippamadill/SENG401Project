@@ -1,57 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 //import axios from 'axios'; // Assuming you're using Axios for HTTP requests
 import '../assets/styling/Reviews.css';
 
-import { UserContext , AuthenticationContext} from '../context/UserContext';
 import { useContext } from 'react';
-const dummyBooks = [
-    {
-        ISBN: '1234567890123',
-        title: 'Book Title 1',
-        author: 'Author 1'
-    },
-    {
-        ISBN: '2345678901234',
-        title: 'Book Title 2',
-        author: 'Author 2'
-    },
-    {
-        ISBN: '1',
-        title: 'Book Title 3',
-        author: 'Author 3'
-    },
-    {
-        ISBN: '1234567890123',
-        title: 'Book Title 1',
-        author: 'Author 1'
-    },
-    {
-        ISBN: '2345678901234',
-        title: 'Book Title 2',
-        author: 'Author 2'
-    },
-    {
-        ISBN: '1',
-        title: 'Book Title 3',
-        author: 'Author2 3'
-    },
-    {
-        ISBN: '1234567890123',
-        title: 'Book Title 1',
-        author: 'Author 1'
-    },
-    {
-        ISBN: '2345678901234',
-        title: 'Book Title 2',
-        author: 'Author 2'
-    },
-    {
-        ISBN: '1',
-        title: 'Book Title 3',
-        author: 'Author 3'
-    },
-    // Add more dummy book objects as needed
-];
+import { AuthenticationContext, UserContext } from '../context/UserContext';
 
 export default function Reviews() {
     const {userInfo} = useContext(UserContext);
@@ -59,7 +11,7 @@ export default function Reviews() {
 
     const [reviews, setReviews] = useState([]);
     const [books, setBooks] = useState([]);
-
+    //call to GetReviews function on page load
     useEffect(() => {
         GetReviews();
     }, []);
@@ -72,7 +24,7 @@ export default function Reviews() {
 
     async function GetReviews() {
         try {
-            console.log(userInfo.username)
+            //await response from the server
             const response = await fetch("http://localhost:7003/review/getReviewsByUsername?username="+userInfo.username, {
                 method: "GET",
                 headers: {
@@ -83,9 +35,11 @@ export default function Reviews() {
             });
             
             if (response.ok) {
+                //await json response containing data
                 const responseData = await response.json();
+                //Set the reviews variable array to the response from the database
                 setReviews(responseData);
-                console.log(responseData);
+                //call the GetBooks method
                 GetBooks();
 
             } else {
@@ -97,11 +51,11 @@ export default function Reviews() {
     }
 
     async function GetBooks() {
-        console.log(reviews);
-        
+        //for each review get info about the book that was reviewed
         for (const review of reviews) {
             console.log(review.ISBN);
             try {
+                //await response from the database about the book that
                 const response = await fetch("http://localhost:7003/book/getBookByISBN?ISBN=" + review.ISBN, {
                     method: "GET",
                     headers: {
@@ -112,12 +66,10 @@ export default function Reviews() {
                 });
     
                 if (response.ok) {
+                    //await the json response containing data about the book
                     const responseData = await response.json();
-                    console.log("res data");
-
-                    console.log(responseData);
+                    //add the book info to an array
                     setBooks(old => [...old, responseData]);
-                    console.log(books);
                 } else {
                     console.log("Error Fetching Books");
                 }
@@ -127,7 +79,6 @@ export default function Reviews() {
         }
     }
     
-
     return (
         <div>
             <div className='top-bar'>

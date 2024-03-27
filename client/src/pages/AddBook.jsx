@@ -23,7 +23,7 @@ function AddBook() {
 
   async function HandleAddBook(e) {
     e.preventDefault();
-
+    //If any fields are missing, Display a message on the page
     if (
       coverImage === "" ||
       bookName === "" ||
@@ -33,17 +33,12 @@ function AddBook() {
       aboutAuthor === ""
     ) {
       toast.error("All Fields Are Required");
-      // setResponseText("All Fields Are Required");
       return;
     }
-
-    var data = {};
-    var error = null;
-    
+    //Send image data to the backend to be uploaded to the cloud
     let file= files[0];
     let blob = file.slice(0, file.size)
     const newFile = new File([blob], file.name);
-
     let formData = new FormData();
     formData.append("imgFile", newFile, newFile.name);
     const resp = await fetch('http://localhost:7003/book/uploadToGCP', {
@@ -61,7 +56,7 @@ function AddBook() {
       let e = resp.json()
       .then((res) => setPubURL(res.pubURL));
     }
-    console.log(pubURL)
+    //Store input data as the body to be sent to the backend
     const body = {
       ISBN: bookISBN,
       book_name: bookName,
@@ -70,7 +65,7 @@ function AddBook() {
       author_name: authorsName,
       about_author: aboutAuthor,
     };
-
+    //send the data to the backend
     const route = "http://localhost:7003/book/createBook";
     const response = await fetch(route, {
       method: "POST",
@@ -81,18 +76,16 @@ function AddBook() {
     });
     console.log(response);
     if (response.status === 201) {
+      //If successful redirect to the books viewBook page
       toast.success("Book Created Successfully");
-      // setResponseText("Book Created Successfully");
       navigate(`/viewBook/${bookISBN}`);
     } else {
+      //If unsuccessful display an error message
       toast.error("There was an error with creating the book. Please try again");
-      // setResponseText(
-      //   "There was an error with creating the book. Please try again"
-      // );
     }
   }
 
-  // rendering previews
+  // rendering The image previews
   useEffect(() => {
     if (!files) return;
     let tmp = [];
@@ -102,7 +95,7 @@ function AddBook() {
     const objectUrls = tmp;
     setPreviews(objectUrls);
     setHide(true);
-    // free memory
+    // free memory when imgage is deselected
     for (let i = 0; i < objectUrls.length; i++) {
       return () => {
         URL.revokeObjectURL(objectUrls[i]);
