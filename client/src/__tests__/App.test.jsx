@@ -7,7 +7,7 @@ import useLocalStorage from "use-local-storage";
 import App from '../app/App.js';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-test('renders login button', async () => {
+test('TC18: renders login button', async () => {
     const {findByText} = render(<BrowserRouter>
       <Routes>
         <Route {...<App />} />
@@ -16,7 +16,7 @@ test('renders login button', async () => {
     await waitFor(()=> expect(findByText("Login")).toBeTruthy());
 });
 
-test('renders guest button', async () => {
+test('TC19: renders guest button', async () => {
   const {findByText} = render(<BrowserRouter>
     <Routes>
       <Route {...<App />} />
@@ -25,7 +25,7 @@ test('renders guest button', async () => {
   await waitFor(()=> expect(findByText("Continue as Guest")).toBeTruthy());
 });
 
-test('renders reviews link', async () => {
+test('TC20: renders reviews link', async () => {
   const {findByText} = render(<BrowserRouter>
     <Routes>
       <Route {...<App />} />
@@ -34,7 +34,7 @@ test('renders reviews link', async () => {
   await waitFor(()=> expect(findByText("Reviews")).toBeTruthy());
 });
 
-test('renders currently reading link', async () => {
+test('TC21: renders currently reading link', async () => {
   const {findByText} = render(<BrowserRouter>
     <Routes>
       <Route {...<App />} />
@@ -43,7 +43,7 @@ test('renders currently reading link', async () => {
   await waitFor(()=> expect(findByText("Currently reading")).toBeTruthy());
 });
 
-test('renders want to read link', async () => {
+test('TC22: renders want to read link', async () => {
   const {findByText} = render(<BrowserRouter>
     <Routes>
       <Route {...<App />} />
@@ -52,7 +52,7 @@ test('renders want to read link', async () => {
   await waitFor(()=> expect(findByText("Want to read")).toBeTruthy());
 });
 
-test('renders search link', async () => {
+test('TC23: renders search link', async () => {
   const {findByText} = render(<BrowserRouter>
     <Routes>
       <Route {...<App />} />
